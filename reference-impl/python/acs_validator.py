@@ -6,9 +6,9 @@ Validates .agents/ files against ACS v1.0 spec.
 import yaml
 import re
 from pathlib import Path
-from typing import list
+from typing import List
 
-def validate_manifest(path: Path) -> list[str]:
+def validate_manifest(path: Path) -> List[str]:
     errors = []
     with open(path) as f:
         data = yaml.safe_load(f)
@@ -29,7 +29,7 @@ def validate_manifest(path: Path) -> list[str]:
             errors.append("project.description exceeds 512 characters")
     return errors
 
-def validate_skill(path: Path) -> list[str]:
+def validate_skill(path: Path) -> List[str]:
     errors = []
     with open(path) as f:
         content = f.read()
