@@ -1,0 +1,23 @@
+deny:
+  read:
+    - ".env"
+    - ".env.*"
+    - "secrets/**"
+    - "*.pem"
+    - "*.key"
+    - "infra/**"
+  write:
+    - "prisma/migrations/**"
+    - "src/middleware/auth/**"
+    - "infra/**"
+    - "docker-compose.yml"
+
+allow:
+  read:
+    - "**"
+  write:
+    - "src/routes/**"
+    - "src/services/**"
+    - "src/models/**"
+    - "tests/**"
+    - "docs/**"

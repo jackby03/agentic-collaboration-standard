@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/permissions.schema.json",
+  "title": "ACS Permissions Policy",
+  "description": "Schema for .agents/permissions/policy.yaml",
+  "type": "object",
+  "properties": {
+    "deny": {
+      "type": "object",
+      "properties": {
+        "read":  { "type": "array", "items": { "type": "string" } },
+        "write": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "allow": {
+      "type": "object",
+      "properties": {
+        "read":  { "type": "array", "items": { "type": "string" } },
+        "write": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+name: Validate ACS Examples
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - name: Validate example projects
+        run: |
+          for dir in examples/*/; do
+            echo "Validating $dir"
+            python reference-impl/python/acs_validator.py
+          done

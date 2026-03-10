@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/manifest.schema.json",
+  "title": "ACS Manifest",
+  "description": "Schema for .agents/acs.yaml",
+  "type": "object",
+  "required": ["acs_version", "project"],
+  "properties": {
+    "acs_version": {
+      "type": "string",
+      "enum": ["1.0"],
+      "description": "ACS specification version"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "description"],
+      "properties": {
+        "name": { "type": "string", "maxLength": 64, "pattern": "^[a-z0-9-]+$" },
+        "description": { "type": "string", "maxLength": 512 },
+        "language": { "type": "string" },
+        "framework": { "type": "string" }
+      }
+    },
+    "layers": {
+      "type": "object",
+      "properties": {
+        "context":     { "type": "boolean" },
+        "skills":      { "type": "boolean" },
+        "commands":    { "type": "boolean" },
+        "agents":      { "type": "boolean" },
+        "permissions": { "type": "boolean" }
+      }
+    },
+    "compatible_with": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

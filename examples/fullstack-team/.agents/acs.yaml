@@ -1,0 +1,18 @@
+acs_version: "1.0"
+project:
+  name: "platform-api"
+  description: "Internal REST API powering the platform. Node.js, PostgreSQL, deployed on AWS."
+  language: typescript
+  framework: express
+
+layers:
+  context: true
+  skills: false
+  commands: false
+  agents: true
+  permissions: true
+
+compatible_with:
+  - claude-code
+  - cursor
+  - any

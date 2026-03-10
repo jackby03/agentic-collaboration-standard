@@ -1,0 +1,18 @@
+deny:
+  read:
+    - ".env"
+    - ".env.*"
+    - "*.pem"
+    - "*.key"
+  write:
+    - "prisma/migrations/**"
+    - "lib/payments/**"
+
+allow:
+  read:
+    - "**"
+  write:
+    - "app/**"
+    - "components/**"
+    - "lib/**"
+    - "tests/**"

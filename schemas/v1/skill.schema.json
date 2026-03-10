@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/skill.schema.json",
+  "title": "ACS Skill Frontmatter",
+  "description": "Schema for SKILL.md YAML frontmatter",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": { "type": "string", "maxLength": 64, "pattern": "^[a-z0-9-]+$" },
+    "description": { "type": "string", "maxLength": 1024 },
+    "license": { "type": "string" },
+    "compatibility": { "type": "string", "maxLength": 500 },
+    "allowed-tools": { "type": "string" }
+  }
+}

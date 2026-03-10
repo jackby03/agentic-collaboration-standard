@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ACS Command Frontmatter",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": { "type": "string", "maxLength": 64 },
+    "description": { "type": "string", "maxLength": 512 },
+    "input": { "type": "string" }
+  }
+}
