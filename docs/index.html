@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACS — Agentic Collaboration Standard</title>
+  <meta name="description" content="A unified open format for agent-ready projects. One .agents/ folder. Any tool. Any agent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0a0a0a;--bg2:#111;--bg3:#161616;--border:#222;--border2:#333;
+      --accent:#B8FF57;--accent2:#7ab83a;--text:#e8e8e8;--muted:#666;
+      --dim:#999;--red:#ff5757;--blue:#57b8ff;--yellow:#ffd557;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.3;pointer-events:none;z-index:0}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:56px;border-bottom:1px solid var(--border);background:rgba(10,10,10,.9);backdrop-filter:blur(12px)}
+    .nav-logo{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.08em;color:var(--accent);text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{color:var(--bg)!important;background:var(--accent);padding:7px 16px;border-radius:2px}
+    .nav-cta:hover{opacity:.85}
+
+    /* HERO */
+    .hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;max-width:1200px;margin:0 auto}
+    .hero-eyebrow{display:flex;gap:12px;margin-bottom:32px;opacity:0;animation:fadeUp .6s ease forwards .2s}
+    .badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:2px;border:1px solid var(--border2);color:var(--muted)}
+    .badge-a{border-color:var(--accent);color:var(--accent)}
+    h1{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(50px,8vw,96px);line-height:.95;letter-spacing:-.02em;opacity:0;animation:fadeUp .7s ease forwards .35s;margin-bottom:24px}
+    h1 .hi{color:var(--accent);position:relative}
+    h1 .hi::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:3px;background:var(--accent);opacity:.25}
+    .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,2.5vw,26px);color:var(--dim);margin-bottom:16px;opacity:0;animation:fadeUp .7s ease forwards .5s}
+    .hero-desc{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:48px;opacity:0;animation:fadeUp .7s ease forwards .65s}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s ease forwards .8s}
+    .btn-p{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--bg);background:var(--accent);padding:14px 28px;border-radius:2px;text-decoration:none;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-p:hover{opacity:.9;transform:translateY(-1px)}
+    .btn-s{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--muted);background:transparent;padding:13px 28px;border-radius:2px;border:1px solid var(--border2);text-decoration:none;transition:color .2s,border-color .2s,transform .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-s:hover{color:var(--text);border-color:var(--dim);transform:translateY(-1px)}
+
+    /* CODE WINDOW */
+    .hero-code{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:400px;opacity:0;animation:fadeLeft .8s ease forwards .9s}
+    @media(max-width:1100px){.hero-code{display:none}}
+    .cw{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,.6),0 0 0 1px rgba(184,255,87,.04)}
+    .ctb{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--bg2)}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
+    .cfn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px}
+    .cb{padding:20px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.85;color:var(--dim)}
+    .cc{color:#555}.ck{color:var(--blue)}.cv{color:var(--accent)}.cs{color:var(--yellow)}
+    .ci{padding-left:16px}
+
+    /* TICKER */
+    .ticker{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;position:relative;z-index:1}
+    .tt{display:flex;gap:48px;animation:ticker 22s linear infinite;white-space:nowrap}
+    .ti{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:16px;flex-shrink:0}
+    .ts{color:var(--accent);opacity:.6}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* LOGOS */
+    .logos{position:relative;z-index:1;padding:32px 48px;border-bottom:1px solid var(--border);max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:0;flex-wrap:wrap}
+    .ll{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-right:40px;white-space:nowrap}
+    .logo-list{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+    .li{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;color:var(--muted);opacity:.45;letter-spacing:.05em;transition:opacity .2s}
+    .li:hover{opacity:.9}
+
+    /* SECTIONS */
+    section{position:relative;z-index:1}
+    .container{max-width:1200px;margin:0 auto;padding:0 48px}
+    .stag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+    .stag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+    .stit{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.15;color:var(--text);margin-bottom:20px}
+    .sdesc{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7}
+
+    /* PROBLEM */
+    .ps{padding:100px 0;border-bottom:1px solid var(--border)}
+    .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:64px;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+    .pcol{padding:40px;border-right:1px solid var(--border)}
+    .pcol:last-child{border-right:none}
+    .pcl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+    .drd{width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block}
+    .dgr{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+    .pitems{display:flex;flex-direction:column;gap:10px}
+    .pi{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);padding:12px 16px;border:1px solid var(--border);border-radius:3px;display:flex;align-items:center;gap:10px;background:var(--bg2);transition:border-color .2s}
+    .pi:hover{border-color:var(--border2)}
+    .si{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text);padding:12px 16px;border:1px solid rgba(184,255,87,.14);border-radius:3px;display:flex;align-items:center;gap:10px;background:rgba(184,255,87,.03);transition:border-color .2s,background .2s}
+    .si:hover{border-color:rgba(184,255,87,.3);background:rgba(184,255,87,.06)}
+    .chk{color:var(--accent)}
+
+    /* LAYERS */
+    .ls{padding:100px 0;border-bottom:1px solid var(--border)}
+    .ll2{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:start}
+    .llist{display:flex;flex-direction:column;gap:4px}
+    .litem{display:flex;align-items:flex-start;gap:20px;padding:20px;border:1px solid transparent;border-radius:4px;transition:border-color .2s,background .2s}
+    .litem:hover,.litem.active{border-color:rgba(184,255,87,.22);background:rgba(184,255,87,.04)}
+    .lic{width:36px;height:36px;border-radius:4px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:border-color .2s}
+    .litem.active .lic{border-color:rgba(184,255,87,.4);background:rgba(184,255,87,.08)}
+    .lt h3{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+    .lt p{font-size:13px;color:var(--muted);line-height:1.5}
+    .lb{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:rgba(184,255,87,.1);color:var(--accent);margin-left:auto;flex-shrink:0}
+    .lbf{background:rgba(100,100,100,.15);color:var(--muted)}
+
+    /* TREE */
+    .tree{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:2;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:28px;position:sticky;top:80px}
+    .tr{color:var(--accent);font-weight:500}.tf{color:var(--blue)}.tfi{color:var(--dim)}.tc{color:#444}.tb{color:#333}.th{color:var(--accent)}
+    .tl{display:flex;gap:8px}.ti2{padding-left:20px}
+
+    /* HOW */
+    .hs{padding:100px 0;border-bottom:1px solid var(--border)}
+    .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+    .step{background:var(--bg);padding:40px;transition:background .2s}
+    .step:hover{background:var(--bg2)}
+    .sn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .sn::after{content:'';flex:1;height:1px;background:var(--border2)}
+    .step h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--text);margin-bottom:12px}
+    .step p{font-size:14px;color:var(--muted);line-height:1.6}
+    .sc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);background:rgba(184,255,87,.06);border:1px solid rgba(184,255,87,.14);border-radius:3px;padding:10px 14px;margin-top:20px;display:block}
+
+    /* COMPAT */
+    .cs2{padding:100px 0;border-bottom:1px solid var(--border)}
+    .cg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:64px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+    .ci2{background:var(--bg);padding:32px 40px;display:flex;align-items:flex-start;gap:20px;transition:background .2s}
+    .ci2:hover{background:var(--bg2)}
+    .cicon{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--bg);background:var(--accent2);padding:6px 10px;border-radius:3px;flex-shrink:0;letter-spacing:.05em}
+    .cicon.b{background:#1e3a52;color:var(--blue)}.cicon.y{background:#3a2e0a;color:var(--yellow)}.cicon.m{background:var(--bg3);color:var(--muted);border:1px solid var(--border2)}
+    .ct h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px}
+    .ct p{font-size:13px;color:var(--muted);line-height:1.5}
+
+    /* CTA */
+    .ctas{padding:120px 0}
+    .ctai{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .ctax p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px}
+    .ctab{display:flex;flex-direction:column;gap:12px}
+    .ctac{background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:22px 28px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:border-color .2s,transform .2s}
+    .ctac:hover{border-color:rgba(184,255,87,.4);transform:translateX(4px)}
+    .ctac-ic{font-size:18px;flex-shrink:0}
+    .ctac-t h4{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+    .ctac-t p{font-size:12px;color:var(--muted);margin:0;line-height:1.4}
+    .ctac-ar{margin-left:auto;color:var(--muted);font-size:16px;transition:color .2s,transform .2s}
+    .ctac:hover .ctac-ar{color:var(--accent);transform:translateX(4px)}
+
+    /* FOOTER */
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+    .fl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+    .fl span{color:var(--accent)}
+    .flinks{display:flex;gap:24px}
+    .flinks a{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+    .flinks a:hover{color:var(--text)}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeLeft{from{opacity:0;transform:translateY(-50%) translateX(20px)}to{opacity:1;transform:translateY(-50%) translateX(0)}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:768px){
+      nav{padding:0 20px}.nav-links{display:none}
+      .hero{padding:100px 20px 60px}.container{padding:0 20px}
+      .pgrid,.ll2,.sg,.cg,.ctai{grid-template-columns:1fr}
+      .ll2{gap:40px}
+      footer{flex-direction:column;gap:20px;padding:30px 20px}
+      .logos{padding:24px 20px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">ACS</a>
+  <ul class="nav-links">
+    <li><a href="#layers">Spec</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#compat">Compatibility</a></li>
+    <li><a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">Docs</a></li>
+    <li><a class="nav-cta" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">GitHub →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span class="badge badge-a">Draft v1.0</span>
+    <span class="badge">Open Standard</span>
+  </div>
+  <h1>Agentic<br/><span class="hi">Collaboration</span><br/>Standard</h1>
+  <p class="hero-sub">One folder. Any agent. Any tool.</p>
+  <p class="hero-desc">ACS defines a unified <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.agents/</code> folder for agent-ready projects. Write your context, skills, and permissions once — use them across Claude Code, Cursor, Copilot, and any future tool.</p>
+  <div class="hero-actions">
+    <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">Get started →</a>
+    <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Read the spec</a>
+  </div>
+  <div class="hero-code">
+    <div class="cw">
+      <div class="ctb"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><span class="cfn">.agents/acs.yaml</span></div>
+      <div class="cb">
+        <div><span class="cc"># ACS Manifest v1.0</span></div>
+        <div>&nbsp;</div>
+        <div><span class="ck">acs_version</span>: <span class="cs">"1.0"</span></div>
+        <div>&nbsp;</div>
+        <div><span class="ck">project</span>:</div>
+        <div class="ci"><span class="ck">name</span>: <span class="cs">"my-app"</span></div>
+        <div class="ci"><span class="ck">description</span>: <span class="cs">"E-commerce platform"</span></div>
+        <div class="ci"><span class="ck">framework</span>: <span class="cv">nextjs</span></div>
+        <div>&nbsp;</div>
+        <div><span class="ck">layers</span>:</div>
+        <div class="ci"><span class="ck">context</span>: <span class="cv">true</span></div>
+        <div class="ci"><span class="ck">skills</span>: <span class="cv">true</span></div>
+        <div class="ci"><span class="ck">commands</span>: <span class="cv">true</span></div>
+        <div class="ci"><span class="ck">agents</span>: <span class="cv">true</span></div>
+        <div class="ci"><span class="ck">permissions</span>: <span class="cv">true</span></div>
+        <div>&nbsp;</div>
+        <div><span class="ck">compatible_with</span>:</div>
+        <div class="ci">- <span class="cs">claude-code</span></div>
+        <div class="ci">- <span class="cs">cursor</span></div>
+        <div class="ci">- <span class="cs">any</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tt">
+    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span>
+    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="logos">
+  <span class="ll">Works with</span>
+  <div class="logo-list">
+    <span class="li">Claude Code</span><span class="li">Cursor</span><span class="li">GitHub Copilot</span><span class="li">Aider</span><span class="li">OpenAI Codex</span><span class="li">Gemini CLI</span><span class="li">any agent →</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="ps">
+  <div class="container">
+    <div class="reveal">
+      <div class="stag">The problem</div>
+      <h2 class="stit">Every tool reinvents<br/>the same wheel.</h2>
+      <p class="sdesc">Agent configuration is fragmented. Your context, skills, and rules live in vendor-specific formats that don't travel.</p>
+    </div>
+    <div class="pgrid reveal">
+      <div class="pcol">
+        <div class="pcl"><span class="drd"></span>Without ACS</div>
+        <div class="pitems">
+          <div class="pi">⚠&nbsp;&nbsp;CLAUDE.md for Claude Code only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.cursorrules for Cursor only</div>
+          <div class="pi">⚠&nbsp;&nbsp;No shared permissions model</div>
+          <div class="pi">⚠&nbsp;&nbsp;Skills defined per-tool, not portable</div>
+          <div class="pi">⚠&nbsp;&nbsp;Switch tools → lose everything</div>
+          <div class="pi">⚠&nbsp;&nbsp;No standard for non-dev users</div>
+        </div>
+      </div>
+      <div class="pcol">
+        <div class="pcl"><span class="dgr"></span>With ACS</div>
+        <div class="pitems">
+          <div class="si"><span class="chk">✓</span>&nbsp;One .agents/ folder for everything</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;Same config across all tools</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;Explicit, version-controlled permissions</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;SKILL.md-compatible reusable skills</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;Portable when you switch tools</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;Human-readable for non-devs too</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYERS -->
+<section class="ls" id="layers">
+  <div class="container">
+    <div class="reveal">
+      <div class="stag">Specification</div>
+      <h2 class="stit">Five layers.<br/>One folder.</h2>
+      <p class="sdesc">ACS is additive. Start with context only. Add layers as your project grows.</p>
+    </div>
+    <div class="ll2">
+      <div class="llist reveal">
+        <div class="litem active"><div class="lic">📄</div><div class="lt"><h3>context/</h3><p>What agents need to know. Architecture, conventions, do-not-touch rules.</p></div><span class="lb">v1.0</span></div>
+        <div class="litem"><div class="lic">⚡</div><div class="lt"><h3>skills/</h3><p>Reusable capabilities. SKILL.md compatible with agentskills.io.</p></div><span class="lb">v1.0</span></div>
+        <div class="litem"><div class="lic">⌨</div><div class="lt"><h3>commands/</h3><p>Named, single-shot tasks. Like slash commands for any agent.</p></div><span class="lb">v1.0</span></div>
+        <div class="litem"><div class="lic">🤖</div><div class="lt"><h3>agents/</h3><p>Named subagents: reviewer, tester, docs-writer, and more.</p></div><span class="lb">v1.0</span></div>
+        <div class="litem"><div class="lic">🔒</div><div class="lt"><h3>permissions/</h3><p>Explicit allow/deny rules for file access. Committed to git.</p></div><span class="lb">v1.0</span></div>
+        <div class="litem"><div class="lic">⋯</div><div class="lt"><h3>workflows, hooks, profiles</h3><p>Multi-step orchestration and lifecycle triggers.</p></div><span class="lb lbf">v2.0</span></div>
+      </div>
+      <div class="reveal">
+        <div class="tree">
+          <div class="tl"><span class="tb">📁</span>&nbsp;<span class="tr">your-project/</span></div>
+          <div class="ti2">
+            <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tfi">AGENTS.md</span>&nbsp;<span class="tc"># human overview</span></div>
+            <div class="tl"><span class="tb">└─</span>&nbsp;<span class="tf">.agents/</span>&nbsp;<span class="tc">&nbsp;&nbsp;&nbsp;# ACS root</span></div>
+            <div class="ti2">
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="th">acs.yaml</span>&nbsp;<span class="tc">&nbsp;&nbsp;&nbsp;# manifest</span></div>
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">context/</span></div>
+              <div class="ti2"><div class="tl"><span class="tb">└─</span>&nbsp;<span class="tfi">project.md</span></div></div>
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">skills/</span></div>
+              <div class="ti2">
+                <div class="tl"><span class="tb">└─</span>&nbsp;<span class="tf">create-component/</span></div>
+                <div class="ti2">
+                  <div class="tl"><span class="tb">├─</span>&nbsp;<span class="th">SKILL.md</span></div>
+                  <div class="tl"><span class="tb">└─</span>&nbsp;<span class="tf">references/</span></div>
+                </div>
+              </div>
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">commands/</span></div>
+              <div class="ti2"><div class="tl"><span class="tb">└─</span>&nbsp;<span class="tfi">explain-error.md</span></div></div>
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">agents/</span></div>
+              <div class="ti2"><div class="tl"><span class="tb">└─</span>&nbsp;<span class="tfi">reviewer.md</span></div></div>
+              <div class="tl"><span class="tb">└─</span>&nbsp;<span class="tf">permissions/</span></div>
+              <div class="ti2"><div class="tl"><span class="tb">└─</span>&nbsp;<span class="tfi">policy.yaml</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="hs" id="how">
+  <div class="container">
+    <div class="reveal">
+      <div class="stag">How it works</div>
+      <h2 class="stit">Progressive disclosure.<br/>Load only what you need.</h2>
+      <p class="sdesc">ACS uses a three-tier loading strategy. Agents get the right context at the right time — without bloating the session.</p>
+    </div>
+    <div class="sg reveal">
+      <div class="step"><div class="sn">Tier 01</div><h3>Always in context</h3><p>Manifest, permissions, and project context load at session start. Skill names only — ~50 tokens each.</p><code class="sc">~200 tokens total overhead</code></div>
+      <div class="step"><div class="sn">Tier 02</div><h3>On activation</h3><p>Full SKILL.md body loads when the agent decides the task matches. Commands and agents load on invocation.</p><code class="sc">&lt; 5,000 tokens per skill</code></div>
+      <div class="step"><div class="sn">Tier 03</div><h3>On demand</h3><p>Reference files, scripts, and assets load only when the skill instructions reference them explicitly.</p><code class="sc">zero cost if unused</code></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPAT -->
+<section class="cs2" id="compat">
+  <div class="container">
+    <div class="reveal">
+      <div class="stag">Compatibility</div>
+      <h2 class="stit">Designed to coexist,<br/>not replace.</h2>
+      <p class="sdesc">ACS works alongside every existing standard. Add .agents/ to any project without breaking what's there.</p>
+    </div>
+    <div class="cg reveal">
+      <div class="ci2"><div class="cicon">AGT</div><div class="ct"><h4>AGENTS.md</h4><p>Keep your AGENTS.md for broad compatibility. ACS adds structured layers on top. They live side by side in the same repo.</p></div></div>
+      <div class="ci2"><div class="cicon b">SKL</div><div class="ct"><h4>SKILL.md (agentskills.io)</h4><p>ACS skills use the exact same SKILL.md format. Any agentskills.io skill works inside .agents/skills/ with zero changes.</p></div></div>
+      <div class="ci2"><div class="cicon y">MCP</div><div class="ct"><h4>Model Context Protocol</h4><p>MCP handles runtime tools. ACS handles project configuration. Different layers, fully complementary.</p></div></div>
+      <div class="ci2"><div class="cicon m">CLD</div><div class="ct"><h4>CLAUDE.md</h4><p>Migrate incrementally. The planned acs compile CLI will generate CLAUDE.md from ACS automatically.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ctas">
+  <div class="container">
+    <div class="ctai reveal">
+      <div class="ctax">
+        <div class="stag">Get started</div>
+        <h2 class="stit">Your project,<br/>agent-ready in minutes.</h2>
+        <p>Create a .agents/ folder. Add acs.yaml. Write context. Done — any ACS-compatible agent picks it up automatically.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">View on GitHub →</a>
+          <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Read the spec</a>
+        </div>
+      </div>
+      <div class="ctab">
+        <a class="ctac" href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/getting-started.md" target="_blank"><span class="ctac-ic">🚀</span><div class="ctac-t"><h4>Getting Started</h4><p>Scaffold your first .agents/ in under 5 minutes</p></div><span class="ctac-ar">→</span></a>
+        <a class="ctac" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank"><span class="ctac-ic">📐</span><div class="ctac-t"><h4>Full Specification</h4><p>Layout, manifest, all file formats, behavior contract</p></div><span class="ctac-ar">→</span></a>
+        <a class="ctac" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/examples" target="_blank"><span class="ctac-ic">💡</span><div class="ctac-t"><h4>Examples</h4><p>Real .agents/ configs for solo and team projects</p></div><span class="ctac-ar">→</span></a>
+        <a class="ctac" href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/for-tool-builders.md" target="_blank"><span class="ctac-ic">🔧</span><div class="ctac-t"><h4>For Tool Builders</h4><p>Add ACS support to your agent or IDE</p></div><span class="ctac-ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl"><span>ACS</span> — Agentic Collaboration Standard · Draft v1.0 · <a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank" style="color:var(--muted);text-decoration:none">jackby03</a></div>
+  <div class="flinks">
+    <a href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Spec</a>
+    <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+    <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/GOVERNANCE.md" target="_blank">Governance</a>
+    <a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const items = document.querySelectorAll('.litem');
+  let cur = 0;
+  setInterval(() => {
+    items.forEach(el => el.classList.remove('active'));
+    items[cur % (items.length - 1)].classList.add('active');
+    cur++;
+  }, 2000);
+</script>
+</body>
+</html>
