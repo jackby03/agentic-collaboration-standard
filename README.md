@@ -3,7 +3,10 @@
 ![ACS — One folder. Any agent.](docs/hero.png)
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE)
-[![Status: Draft v1.0](https://img.shields.io/badge/Status-Draft%20v1.0-yellow.svg)](spec/v1/)
+[![Status: v1.0.0-beta](https://img.shields.io/badge/Status-v1.0.0--beta-blue.svg)](spec/v1/)
+[![npm](https://img.shields.io/npm/v/agentic-standard.svg)](https://www.npmjs.com/package/agentic-standard)
+[![PyPI](https://img.shields.io/pypi/v/agentic-standard.svg)](https://pypi.org/project/agentic-standard/)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/jackby03.acs-vscode.svg)](https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](CONTRIBUTING.md)
 
 ACS defines how projects describe themselves to AI agents through a single `.agents/` folder that any ACS-compatible agent can read, regardless of which tool, IDE, or platform you use.
@@ -48,35 +51,32 @@ your-project/
     └── permissions/      # What agents are ALLOWED to do
 ```
 
+## Install
+
+```bash
+# npm (Node.js)
+npm install -g agentic-standard
+
+# pip (Python)
+pip install agentic-standard
+```
+
+Or install the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode) from the Marketplace.
+
 ## Quick start
 
 ```bash
-# 1. Create the folder
-mkdir -p .agents/context
+# Scaffold a new .agents/ folder in your project
+acs init
 
-# 2. Add your manifest
-cat > .agents/main.yaml << 'YAML'
-version: "1.0"
-project:
-  name: my-project
-  description: "A brief description of your project"
-layers:
-  context: true
-  skills: false
-  commands: false
-  agents: false
-  permissions: false
-YAML
+# Validate your existing .agents/ setup
+acs validate
 
-# 3. Add your project context
-cat > .agents/context/project.md << 'MD'
-# Project Context
-## Stack
-- ...
-## Conventions
-- ...
-MD
+# List discovered layers
+acs ls
 ```
+
+The CLI generates a ready-to-use `.agents/` structure with a `main.yaml` manifest and a starter `context/project.md` — no manual YAML editing required.
 
 ## Documentation
 
@@ -98,6 +98,12 @@ See [compatibility guides →](compatibility/)
 
 ## Status
 
-ACS is in **draft v1.0**. We're gathering feedback before stabilizing the format.
+ACS is at **v1.0.0-beta**. The spec, CLI, and VS Code extension are published and functional. We're gathering real-world feedback before cutting the official stable **v1.0.0** release.
+
+| Component | Version | Registry |
+|-----------|---------|----------|
+| CLI (`agentic-standard`) | 1.0.3 | [npm](https://www.npmjs.com/package/agentic-standard) · [PyPI](https://pypi.org/project/agentic-standard/) |
+| VS Code extension (`acs-vscode`) | 0.1.3 | [Marketplace](https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode) |
+| Spec | v1.0 | [spec/v1/](spec/v1/) |
 
 [Roadmap](community/ROADMAP.md) · [Contributing](CONTRIBUTING.md) · [Adopters](community/ADOPTERS.md)
