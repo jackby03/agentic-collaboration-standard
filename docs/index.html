@@ -189,7 +189,7 @@
   </div>
   <h1>Agentic<br/><span class="hi">Collaboration</span><br/>Standard</h1>
   <p class="hero-sub">One folder. Any agent. Any tool.</p>
-  <p class="hero-desc">ACS defines a unified <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.agents/</code> folder for agent-ready projects. Write your context, skills, and permissions once — use them across Claude Code, Cursor, Copilot, and any future tool.</p>
+  <p class="hero-desc">ACS defines a unified <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.agents/</code> folder for agent-ready projects. Instead of scattering project guidance across <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">CLAUDE.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.cursorrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.github/copilot-instructions.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">GEMINI.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.windsurfrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.clinerules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.junie/guidelines.md</code>, and a dozen more vendor-specific files, write your context, skills, and permissions once and carry them across every tool.</p>
   <div class="hero-actions">
     <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">Get started →</a>
     <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Read the spec</a>
@@ -217,6 +217,9 @@
         <div><span class="ck">compatible_with</span>:</div>
         <div class="ci">- <span class="cs">claude-code</span></div>
         <div class="ci">- <span class="cs">cursor</span></div>
+        <div class="ci">- <span class="cs">zed</span></div>
+        <div class="ci">- <span class="cs">gemini</span></div>
+        <div class="ci">- <span class="cs">codex</span></div>
         <div class="ci">- <span class="cs">any</span></div>
       </div>
     </div>
@@ -235,7 +238,7 @@
 <div class="logos">
   <span class="ll">Works with</span>
   <div class="logo-list">
-    <span class="li">Claude Code</span><span class="li">Cursor</span><span class="li">GitHub Copilot</span><span class="li">Aider</span><span class="li">OpenAI Codex</span><span class="li">Gemini CLI</span><span class="li">any agent →</span>
+    <span class="li">Cursor</span><span class="li">Zed</span><span class="li">Claude Code</span><span class="li">Gemini</span><span class="li">Codex</span><span class="li">Kiro</span><span class="li">Trae</span><span class="li">Windsurf</span><span class="li">JetBrains Junie</span><span class="li">Coodo</span><span class="li">GitHub Copilot</span><span class="li">Roo Code</span><span class="li">Antigravity</span><span class="li">Firebase Studio</span><span class="li">any agent →</span>
   </div>
 </div>
 
@@ -251,8 +254,14 @@
       <div class="pcol">
         <div class="pcl"><span class="drd"></span>Without ACS</div>
         <div class="pitems">
-          <div class="pi">⚠&nbsp;&nbsp;CLAUDE.md for Claude Code only</div>
-          <div class="pi">⚠&nbsp;&nbsp;.cursorrules for Cursor only</div>
+          <div class="pi">⚠&nbsp;&nbsp;CLAUDE.md / .claude/ — Claude Code only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.cursorrules / .cursor/rules/ — Cursor only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.github/copilot-instructions.md — Copilot only</div>
+          <div class="pi">⚠&nbsp;&nbsp;GEMINI.md — Gemini CLI only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.windsurfrules — Windsurf only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.clinerules / .roo/ — Roo Code only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.junie/guidelines.md — JetBrains Junie only</div>
+          <div class="pi">⚠&nbsp;&nbsp;.kiro/steering/ — Kiro only</div>
           <div class="pi">⚠&nbsp;&nbsp;No shared permissions model</div>
           <div class="pi">⚠&nbsp;&nbsp;Skills defined per-tool, not portable</div>
           <div class="pi">⚠&nbsp;&nbsp;Switch tools → lose everything</div>

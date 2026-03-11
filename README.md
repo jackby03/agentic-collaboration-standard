@@ -6,15 +6,29 @@
 [![Status: Draft v1.0](https://img.shields.io/badge/Status-Draft%20v1.0-yellow.svg)](spec/v1/)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](CONTRIBUTING.md)
 
-ACS defines how projects describe themselves to AI agents — through a single `.agents/` folder that any compatible agent can read, regardless of which tool, IDE, or platform you use.
+ACS defines how projects describe themselves to AI agents through a single `.agents/` folder that any compatible agent can read, regardless of which tool, IDE, or platform you use.
 
 ## The problem
 
-Every agentic tool invents its own configuration format:
-- Claude Code → `CLAUDE.md` + `.claude/`
-- Cursor → `.cursorrules`
-- GitHub Copilot → its own conventions
-- AGENTS.md → instructions only, no structure
+Every agentic tool invents its own configuration format. Teams end up juggling different files and paths across tools such as Cursor, Zed, Claude Code, Gemini, Codex, Kiro, Trae, Windsurf, JetBrains Junie, Coodo, GitHub Copilot, Roo Code, Antigravity, Firebase Studio, and others.
+
+In practice, that fragmentation shows up in vendor-specific files and folders:
+
+| Tool | Config file / path |
+|------|--------------------|
+| Claude Code | `CLAUDE.md` + `.claude/` |
+| Cursor | `.cursorrules` or `.cursor/rules/` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Codex (OpenAI) | `AGENTS.md` + `~/.codex/config.toml` |
+| Windsurf | `.windsurfrules` |
+| Roo Code | `.clinerules` or `.roo/` |
+| Gemini CLI | `GEMINI.md` |
+| Zed | `.zed/` (editor settings with AI context) |
+| Kiro | `.kiro/steering/` |
+| JetBrains Junie | `.junie/guidelines.md` |
+| Trae | `.trae/rules/` |
+| Aider | `.aider.conf.yml` or `CONVENTIONS.md` |
+| AGENTS.md-based tools | `AGENTS.md` |
 
 Teams working with multiple tools duplicate effort. Knowledge stays trapped in vendor-specific formats.
 

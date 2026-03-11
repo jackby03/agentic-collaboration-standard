@@ -6,7 +6,7 @@ The Agentic Collaboration Standard (ACS) is an open format for describing how AI
 
 ## Goals
 
-- **Portability** — One configuration works across Claude Code, Cursor, Copilot, and any future tool
+- **Portability** — One configuration works across tools such as Cursor, Zed, Claude Code, Gemini, Codex, Kiro, Trae, Windsurf, JetBrains Junie, Coodo, GitHub Copilot, Roo Code, Antigravity, Firebase Studio, and future tools
 - **Progressive adoption** — Start with a single file; add layers as needed
 - **Human-readable** — Plain Markdown and YAML. No special runtime required to read it
 - **Inclusive** — Useful for developers, non-developers, and enterprises equally

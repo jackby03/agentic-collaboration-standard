@@ -1,6 +1,6 @@
 # ACS for Non-Developers
 
-You don't need to write code to use ACS. If you work with AI tools like Claude, Cursor, or GitHub Copilot, ACS helps those tools understand your project better.
+You don't need to write code to use ACS. If you work with AI tools like Cursor, Zed, Claude Code, Gemini, Codex, Kiro, Trae, Windsurf, JetBrains Junie, Coodo, GitHub Copilot, Roo Code, Antigravity, Firebase Studio, or similar tools, ACS helps them understand your project better.
 
 ## What you can do with ACS
 
