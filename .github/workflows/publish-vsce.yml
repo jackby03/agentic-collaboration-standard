@@ -1,0 +1,24 @@
+name: Publish VS Code Extension
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish acs-vscode
+    runs-on: ubuntu-latest
+    environment: vsce-publish
+    defaults:
+      run:
+        working-directory: editor/vscode
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Publish to VS Code Marketplace
+        run: npx vsce publish --pat ${{ secrets.VSCE_PAT }}

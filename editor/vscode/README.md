@@ -16,7 +16,7 @@ This extension depends on [YAML by Red Hat](https://marketplace.visualstudio.com
 ## Getting Started
 
 1. Install the extension
-2. Open any project with a `.agents/` folder (or scaffold one with `npx acs init`)
+2. Open any project with a `.agents/` folder (or scaffold one with `acs init`)
 3. Open `.agents/main.yaml` — autocomplete and validation activate immediately
 
 ### Install the CLI

@@ -7,7 +7,7 @@ jobs:
   publish:
     name: Publish agentic-standard CLI
     runs-on: ubuntu-latest
-    environment: npm-publishing
+    environment: npm-publish
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

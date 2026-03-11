@@ -1,6 +1,6 @@
 # agentic-standard
 
-CLI for the [Agentic Collaboration Standard (ACS)](https://acs.jackby03.com) — a unified open format for agent-ready projects.
+CLI for the [Agentic Collaboration Standard (ACS)](https://acs.jackby03.com) — scaffold and validate `.agents/` folders in any project.
 
 ## Install
 
@@ -11,44 +11,26 @@ npm install -g agentic-standard
 ## Usage
 
 ```bash
-# Scaffold a new .agents/ folder
+# Scaffold a new .agents/ folder interactively
 acs init
 
-# Validate your project
+# Validate all ACS files in the current project
 acs validate
 
-# List ACS files in your project
+# List all ACS files found in the project
 acs ls
 ```
 
 ## What is ACS?
 
-ACS defines a unified `.agents/` folder so you write your project context, skills, and permissions once — and any ACS-compatible agent picks it up automatically. No more scattering context across `CLAUDE.md`, `.cursorrules`, `GEMINI.md`, and a dozen vendor-specific files.
-
-```
-your-project/
-├── AGENTS.md
-└── .agents/
-    ├── main.yaml          # manifest
-    ├── context/
-    │   └── project.md
-    ├── skills/
-    │   └── create-component/
-    │       └── SKILL.md
-    ├── commands/
-    │   └── explain-error.md
-    ├── agents/
-    │   └── reviewer.md
-    └── permissions/
-        └── policy.yaml
-```
+ACS defines a unified `.agents/` folder for agent-ready projects. Instead of scattering project context across `CLAUDE.md`, `.cursorrules`, `GEMINI.md`, and a dozen vendor-specific files, write it once — any ACS-compatible agent picks it up.
 
 ## Links
 
 - [Website](https://acs.jackby03.com)
 - [Specification](https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1)
-- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode)
 - [GitHub](https://github.com/jackby03/agentic-collaboration-standard)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode)
 
 ## License
 
