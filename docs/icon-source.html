@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ACS VS Code Extension Icon</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 48px;
+      font-family: monospace;
+    }
+    .label {
+      color: #444;
+      text-align: center;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+    .box { text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- ── 128×128 — export this one as icon.png ── -->
+  <div class="box">
+    <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Main accent: lime green -->
+        <linearGradient id="lime128" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#B8FF57"/>
+          <stop offset="100%" stop-color="#8be03a"/>
+        </linearGradient>
+        <!-- Secondary: blue -->
+        <linearGradient id="blue128" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#57b8ff"/>
+          <stop offset="100%" stop-color="#3a90e0"/>
+        </linearGradient>
+        <!-- Background glow -->
+        <radialGradient id="glow128" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(184,255,87,0.10)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Background -->
+      <rect width="128" height="128" rx="20" fill="#0a0a0a"/>
+      <!-- Subtle grid lines -->
+      <line x1="0" y1="32" x2="128" y2="32" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="64" x2="128" y2="64" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="96" x2="128" y2="96" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="32" y1="0" x2="32" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="64" y1="0" x2="64" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="96" y1="0" x2="96" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <!-- Glow center -->
+      <rect width="128" height="128" rx="20" fill="url(#glow128)"/>
+
+      <!-- Folder body -->
+      <rect x="16" y="48" width="96" height="62" rx="6" fill="#111" stroke="#222" stroke-width="1"/>
+      <!-- Folder tab -->
+      <path d="M16 52 Q16 48 20 48 L50 48 Q54 48 56 52 L58 56 L16 56 Z" fill="#1a1a1a" stroke="#222" stroke-width="1"/>
+
+      <!-- Layer lines inside folder -->
+      <!-- Line 1 — full, bright lime -->
+      <rect x="28" y="68" width="72" height="5" rx="2.5" fill="url(#lime128)"/>
+      <!-- Line 2 — medium, blue -->
+      <rect x="28" y="81" width="52" height="5" rx="2.5" fill="url(#blue128)" opacity="0.8"/>
+      <!-- Line 3 — short, muted lime -->
+      <rect x="28" y="94" width="34" height="5" rx="2.5" fill="#B8FF57" opacity="0.3"/>
+
+      <!-- Agent node — top right -->
+      <circle cx="97" cy="30" r="16" fill="#0a0a0a" stroke="#B8FF57" stroke-width="1.5"/>
+      <!-- Center dot -->
+      <circle cx="97" cy="30" r="4.5" fill="#B8FF57"/>
+      <!-- Four surrounding dots -->
+      <circle cx="89" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="89" cy="35" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="35" r="2" fill="#57b8ff"/>
+      <!-- Connector lines -->
+      <line x1="92.5" y1="30" x2="89" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="101.5" y1="30" x2="105" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="92.5" y1="30" x2="89" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="101.5" y1="30" x2="105" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+    <div class="label">128×128 → save as icon.png</div>
+  </div>
+
+  <!-- ── 64×64 preview ── -->
+  <div class="box">
+    <svg width="64" height="64" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lime64" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#B8FF57"/>
+          <stop offset="100%" stop-color="#8be03a"/>
+        </linearGradient>
+        <linearGradient id="blue64" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#57b8ff"/>
+          <stop offset="100%" stop-color="#3a90e0"/>
+        </linearGradient>
+        <radialGradient id="glow64" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(184,255,87,0.10)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="128" height="128" rx="20" fill="#0a0a0a"/>
+      <line x1="0" y1="32" x2="128" y2="32" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="64" x2="128" y2="64" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="96" x2="128" y2="96" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="32" y1="0" x2="32" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="64" y1="0" x2="64" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="96" y1="0" x2="96" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <rect width="128" height="128" rx="20" fill="url(#glow64)"/>
+      <rect x="16" y="48" width="96" height="62" rx="6" fill="#111" stroke="#222" stroke-width="1"/>
+      <path d="M16 52 Q16 48 20 48 L50 48 Q54 48 56 52 L58 56 L16 56 Z" fill="#1a1a1a" stroke="#222" stroke-width="1"/>
+      <rect x="28" y="68" width="72" height="5" rx="2.5" fill="url(#lime64)"/>
+      <rect x="28" y="81" width="52" height="5" rx="2.5" fill="url(#blue64)" opacity="0.8"/>
+      <rect x="28" y="94" width="34" height="5" rx="2.5" fill="#B8FF57" opacity="0.3"/>
+      <circle cx="97" cy="30" r="16" fill="#0a0a0a" stroke="#B8FF57" stroke-width="1.5"/>
+      <circle cx="97" cy="30" r="4.5" fill="#B8FF57"/>
+      <circle cx="89" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="89" cy="35" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="35" r="2" fill="#57b8ff"/>
+      <line x1="92.5" y1="30" x2="89" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="101.5" y1="30" x2="105" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="92.5" y1="30" x2="89" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+      <line x1="101.5" y1="30" x2="105" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"/>
+    </svg>
+    <div class="label">64×64</div>
+  </div>
+
+  <!-- ── 32×32 preview ── -->
+  <div class="box">
+    <svg width="32" height="32" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lime32" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#B8FF57"/>
+          <stop offset="100%" stop-color="#8be03a"/>
+        </linearGradient>
+        <linearGradient id="blue32" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#57b8ff"/>
+          <stop offset="100%" stop-color="#3a90e0"/>
+        </linearGradient>
+      </defs>
+      <rect width="128" height="128" rx="20" fill="#0a0a0a"/>
+      <line x1="0" y1="32" x2="128" y2="32" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="64" x2="128" y2="64" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="0" y1="96" x2="128" y2="96" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="32" y1="0" x2="32" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="64" y1="0" x2="64" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="96" y1="0" x2="96" y2="128" stroke="#1a1a1a" stroke-width="1"/>
+      <rect x="16" y="48" width="96" height="62" rx="6" fill="#111" stroke="#222" stroke-width="1"/>
+      <path d="M16 52 Q16 48 20 48 L50 48 Q54 48 56 52 L58 56 L16 56 Z" fill="#1a1a1a" stroke="#222" stroke-width="1"/>
+      <rect x="28" y="68" width="72" height="5" rx="2.5" fill="url(#lime32)"/>
+      <rect x="28" y="81" width="52" height="5" rx="2.5" fill="url(#blue32)" opacity="0.8"/>
+      <rect x="28" y="94" width="34" height="5" rx="2.5" fill="#B8FF57" opacity="0.3"/>
+      <circle cx="97" cy="30" r="16" fill="#0a0a0a" stroke="#B8FF57" stroke-width="1.5"/>
+      <circle cx="97" cy="30" r="4.5" fill="#B8FF57"/>
+      <circle cx="89" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="25" r="2" fill="#57b8ff"/>
+      <circle cx="89" cy="35" r="2" fill="#57b8ff"/>
+      <circle cx="105" cy="35" r="2" fill="#57b8ff"/>
+    </svg>
+    <div class="label">32×32</div>
+  </div>
+
+</body>
+</html>

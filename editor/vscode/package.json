@@ -4,13 +4,13 @@
   "description": "YAML autocomplete and inline validation for .agents/ folders (ACS v1.0)",
   "version": "0.1.0",
   "publisher": "jackby03",
+  "icon": "assets/icon.png",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/jackby03/agentic-collaboration-standard"
   },
   "homepage": "https://acs.jackby03.com",
-  "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.85.0"
   },

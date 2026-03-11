@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.0 *(pending release evaluation — 2026-03-11)*
+## v1.0.0 *(2026-03-11)*
 
 ### Phase 1 — Tooling
 
@@ -16,7 +16,7 @@
 - Published `acs-validator` to PyPI — Python library wrapping the reference parser and validator
 
 #### Editor
-- Added VS Code extension (`acs-vscode`) — auto-activates when `.agents/main.yaml` is detected; registers JSON schemas for `main.yaml` and `permissions/policy.yaml` via `redhat.vscode-yaml`; adds `ACS: Validate Project` command
+- Published VS Code extension `jackby03.acs-vscode` to the VS Code Marketplace — auto-activates when `.agents/main.yaml` is detected; registers JSON schemas for `main.yaml` and `permissions/policy.yaml` via `redhat.vscode-yaml`; adds `ACS: Validate Project` command
 
 #### CI
 - Added `publish-npm.yml` — manual-trigger workflow to publish `acs` CLI or `@acs/validator` to npm

@@ -1,0 +1,59 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Main accent: lime green -->
+        <linearGradient id="lime128" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#B8FF57"></stop>
+          <stop offset="100%" stop-color="#8be03a"></stop>
+        </linearGradient>
+        <!-- Secondary: blue -->
+        <linearGradient id="blue128" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#57b8ff"></stop>
+          <stop offset="100%" stop-color="#3a90e0"></stop>
+        </linearGradient>
+        <!-- Background glow -->
+        <radialGradient id="glow128" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(184,255,87,0.10)"></stop>
+          <stop offset="100%" stop-color="rgba(0,0,0,0)"></stop>
+        </radialGradient>
+      </defs>
+
+      <!-- Background -->
+      <rect width="128" height="128" rx="20" fill="#0a0a0a"></rect>
+      <!-- Subtle grid lines -->
+      <line x1="0" y1="32" x2="128" y2="32" stroke="#1a1a1a" stroke-width="1"></line>
+      <line x1="0" y1="64" x2="128" y2="64" stroke="#1a1a1a" stroke-width="1"></line>
+      <line x1="0" y1="96" x2="128" y2="96" stroke="#1a1a1a" stroke-width="1"></line>
+      <line x1="32" y1="0" x2="32" y2="128" stroke="#1a1a1a" stroke-width="1"></line>
+      <line x1="64" y1="0" x2="64" y2="128" stroke="#1a1a1a" stroke-width="1"></line>
+      <line x1="96" y1="0" x2="96" y2="128" stroke="#1a1a1a" stroke-width="1"></line>
+      <!-- Glow center -->
+      <rect width="128" height="128" rx="20" fill="url(#glow128)"></rect>
+
+      <!-- Folder body -->
+      <rect x="16" y="48" width="96" height="62" rx="6" fill="#111" stroke="#222" stroke-width="1"></rect>
+      <!-- Folder tab -->
+      <path d="M16 52 Q16 48 20 48 L50 48 Q54 48 56 52 L58 56 L16 56 Z" fill="#1a1a1a" stroke="#222" stroke-width="1"></path>
+
+      <!-- Layer lines inside folder -->
+      <!-- Line 1 — full, bright lime -->
+      <rect x="28" y="68" width="72" height="5" rx="2.5" fill="url(#lime128)"></rect>
+      <!-- Line 2 — medium, blue -->
+      <rect x="28" y="81" width="52" height="5" rx="2.5" fill="url(#blue128)" opacity="0.8"></rect>
+      <!-- Line 3 — short, muted lime -->
+      <rect x="28" y="94" width="34" height="5" rx="2.5" fill="#B8FF57" opacity="0.3"></rect>
+
+      <!-- Agent node — top right -->
+      <circle cx="97" cy="30" r="16" fill="#0a0a0a" stroke="#B8FF57" stroke-width="1.5"></circle>
+      <!-- Center dot -->
+      <circle cx="97" cy="30" r="4.5" fill="#B8FF57"></circle>
+      <!-- Four surrounding dots -->
+      <circle cx="89" cy="25" r="2" fill="#57b8ff"></circle>
+      <circle cx="105" cy="25" r="2" fill="#57b8ff"></circle>
+      <circle cx="89" cy="35" r="2" fill="#57b8ff"></circle>
+      <circle cx="105" cy="35" r="2" fill="#57b8ff"></circle>
+      <!-- Connector lines -->
+      <line x1="92.5" y1="30" x2="89" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"></line>
+      <line x1="101.5" y1="30" x2="105" y2="25" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"></line>
+      <line x1="92.5" y1="30" x2="89" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"></line>
+      <line x1="101.5" y1="30" x2="105" y2="35" stroke="#57b8ff" stroke-width="0.8" opacity="0.6"></line>
+    </svg>
