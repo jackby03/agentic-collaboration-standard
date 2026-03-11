@@ -14,27 +14,27 @@ This roadmap covers everything from immediate stabilization work to long-term go
 
 ### Bugs
 
-- [ ] **Fix CI validator bug** — `validate.yml` calls `acs_validator.py` without passing each example directory as an argument; the script defaults to `Path.cwd()` and never actually validates the example projects
-- [ ] **Fix spec README index** — `spec/v1/README.md` table is missing sections `02-layout.md` and `03-manifest.md` (files exist but are not listed)
+- [x] **Fix CI validator bug** — `validate.yml` now passes each example directory as an argument; Python validator accepts `sys.argv[1]`; TypeScript Jest `roots` fixed so tests are discovered outside `<rootDir>`
+- [x] **Fix spec README index** — `spec/v1/README.md` table updated; Quick Reference tree added
 
 ### Documentation
 
-- [ ] **Add `AGENTS.md` to repo root** — the ACS repo itself doesn't have a `.agents/` folder or `AGENTS.md`; dogfooding is the clearest signal of confidence in the standard
-- [ ] **Add `for-non-devs.md`** — the spec is developer-oriented; a plain-language guide for non-technical users using tools like Gemini, Copilot, or Claude broadens reach
-- [ ] **Expand FAQ** — add questions around: monorepo setup, user-level vs project-level skills, what happens when no ACS-compatible tool is found, and enterprise permission scenarios
-- [ ] **Spec conformance checklist** — create a single-page checklist (`docs/conformance-checklist.md`) that tool builders can use to self-certify B1–B6 compliance
+- [x] **Add `AGENTS.md` to repo root** — added; ACS repo now dogfoods the standard with its own `.agents/` folder
+- [x] **Add `for-non-devs.md`** — comprehensive plain-language guide with examples, layers table, and real YAML samples
+- [x] **Expand FAQ** — expanded from 7 to 24 questions across 5 categories (General, Setup, Skills & Commands, Permissions, Tool Builders)
+- [x] **Spec conformance checklist** — `docs/conformance-checklist.md` created with full B1–B6 and R1–R4 checklist for tool builders
 
 ### Tests
 
-- [ ] **Add automated tests for Python validator** — pytest suite covering: valid manifest, missing `version`, bad `project.name` format, missing description, malformed skill frontmatter, missing `SKILL.md`
-- [ ] **Add automated tests for TypeScript validator** — equivalent Vitest/Jest suite for `validator.ts`
-- [ ] **Wire tests into CI** — update `validate.yml` to run both test suites on every push and PR
+- [x] **Add automated tests for Python validator** — 20-test pytest suite in `tests/python/test_validator.py` covering manifest, skill, and project validation
+- [x] **Add automated tests for TypeScript validator** — equivalent Jest suite in `tests/typescript/validator.test.ts`
+- [x] **Wire tests into CI** — `validate.yml` runs `pytest tests/python/ -v` and `npm test` on every push and PR
 
 ### Website
 
-- [ ] **Verify GitHub Pages deployment** — confirm `docs/index.html` is live and accessible at the expected URL
-- [ ] **Add canonical URL and Open Graph meta tags** — improve link previews when shared on social / HN / Reddit
-- [ ] **Fix ticker duplication** — the scrolling ticker duplicates the same items twice with no variation; add more diverse items
+- [x] **Verify GitHub Pages deployment** — confirmed live at `https://acs.jackby03.com`
+- [x] **Add canonical URL and Open Graph meta tags** — canonical, `og:image`, `og:image:width/height`, `twitter:image` all set; hero image served at `https://acs.jackby03.com/hero.png`
+- [x] **Fix ticker duplication** — ticker expanded from 10 to 20 diverse items
 
 ---
 
