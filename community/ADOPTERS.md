@@ -1,15 +1,28 @@
 # ACS Adopters
 
-Tools and projects that have implemented ACS support.
+Tools and projects that have adopted the Agentic Collaboration Standard.
 
-## Tools
+Want to be listed? Add an `ACS-compatible` badge to your README and open a PR editing this file.
 
-*Be the first — open a PR to add your tool.*
+```markdown
+[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://acs.jackby03.com)
+```
 
-## Projects using ACS
-
-*Add your project here if you're using ACS.*
+[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://acs.jackby03.com)
 
 ---
 
-To add your tool or project, open a PR editing this file.
+## Tools
+
+*Be the first tool to declare ACS compatibility — open a PR.*
+
+## Projects using ACS
+
+| Project | Description | Added |
+|---------|-------------|-------|
+| [agentic-collaboration-standard](https://github.com/jackby03/agentic-collaboration-standard) | The ACS spec repo itself — dogfooding the standard with its own `.agents/` folder | 2026-03-11 |
+| [hardbox](https://github.com/jackby03/hardbox) | Open-source TUI-driven Linux server hardening toolkit — CIS, STIG, PCI-DSS, HIPAA & NIST 800-53 compliance with dry-run, rollback, and audit reports | 2026-03-11 |
+
+---
+
+To add your project, open a PR adding a row to the table above.
