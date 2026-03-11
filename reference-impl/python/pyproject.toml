@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "acs-validator"
+name = "agentic-standard-validator"
 version = "1.0.0"
 description = "ACS v1.0 reference parser and validator (Python)"
 readme = "README.md"

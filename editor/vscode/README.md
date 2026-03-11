@@ -26,7 +26,7 @@ This extension depends on [YAML by Red Hat](https://marketplace.visualstudio.com
 npm install -g acs
 
 # Python
-pip install acs-cli
+pip install agentic-standard
 ```
 
 Scaffold a new `.agents/` folder:

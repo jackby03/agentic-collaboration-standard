@@ -9,18 +9,18 @@
 - Added `acs validate` — validates all ACS files in the current project; exits non-zero on error (CI-friendly)
 - Added `acs ls` — lists all discovered layers, skills (with descriptions), commands, and agents
 - Published as `acs` on npm: `npm install -g acs` / `npx acs init`
-- Published as `acs-cli` on PyPI: `pip install acs-cli` / `pipx install acs-cli`
+- Published as `agentic-standard` on PyPI: `pip install agentic-standard` / `pipx install agentic-standard`
 
 #### Validator Libraries
 - Published `@acs/validator` to npm — TypeScript library wrapping the reference parser and validator; exports `findACSRoot`, `loadProject`, `validateProject`, and related types
-- Published `acs-validator` to PyPI — Python library wrapping the reference parser and validator
+- Published `agentic-standard-validator` to PyPI — Python library wrapping the reference parser and validator
 
 #### Editor
 - Published VS Code extension `jackby03.acs-vscode` to the VS Code Marketplace — auto-activates when `.agents/main.yaml` is detected; registers JSON schemas for `main.yaml` and `permissions/policy.yaml` via `redhat.vscode-yaml`; adds `ACS: Validate Project` command
 
 #### CI
 - Added `publish-npm.yml` — manual-trigger workflow to publish `acs` CLI or `@acs/validator` to npm
-- Added `publish-pypi.yml` — manual-trigger workflow to publish `acs-cli` or `acs-validator` to PyPI
+- Added `publish-pypi.yml` — manual-trigger workflow to publish `agentic-standard` or `agentic-standard-validator` to PyPI
 
 ---
 

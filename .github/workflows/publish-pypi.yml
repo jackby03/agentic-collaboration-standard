@@ -8,48 +8,48 @@ on:
         required: true
         type: choice
         options:
-          - acs-cli
-          - acs-validator
+          - agentic-standard
+          - agentic-standard-validator
 
 jobs:
-  publish-acs-cli:
-    name: Publish acs-cli
+  publish-agentic-standard:
+    name: Publish agentic-standard
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.package == 'acs-cli' }}
+    if: ${{ github.event.inputs.package == 'agentic-standard' }}
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install build tools
-        run: pip install build twine
+        run: pip install build
       - name: Build
         run: python -m build
         working-directory: packages/python/
       - name: Publish
-        run: twine upload dist/*
-        working-directory: packages/python/
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: packages/python/dist/
 
-  publish-validator:
-    name: Publish acs-validator
+  publish-agentic-standard-validator:
+    name: Publish agentic-standard-validator
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.package == 'acs-validator' }}
+    if: ${{ github.event.inputs.package == 'agentic-standard-validator' }}
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install build tools
-        run: pip install build twine
+        run: pip install build
       - name: Build
         run: python -m build
         working-directory: reference-impl/python/
       - name: Publish
-        run: twine upload dist/*
-        working-directory: reference-impl/python/
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: reference-impl/python/dist/
