@@ -44,8 +44,16 @@ monorepo/
 
 ## Cross-client interoperability
 
-ACS scans `.agents/` as its primary location. Agents implementing ACS may also scan:
-- `.claude/skills/` — for Claude Code compatibility
-- `~/.agents/` — for user-level skills
+ACS scans `.agents/` as its primary location. Agents implementing ACS may also scan vendor-specific paths for backwards compatibility:
+- `.claude/skills/` — Claude Code
+- `.cursorrules` — Cursor
+- `.windsurfrules` — Windsurf
+- `.github/copilot-instructions.md` — GitHub Copilot
+- `GEMINI.md` — Gemini CLI
+- `CODEX.md` — OpenAI Codex
+- `.junie/guidelines.md` — JetBrains Junie
+- `.kiro/` — AWS Kiro
+- `.trae/rules/` — Trae
+- `~/.agents/` — user-level skills (any tool)
 
-The project-level `.agents/` always takes precedence.
+The project-level `.agents/` always takes precedence. The planned `acs compile` CLI can generate vendor-specific files from a single ACS source.

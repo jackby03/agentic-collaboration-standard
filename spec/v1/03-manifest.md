@@ -30,8 +30,20 @@ layers:
   permissions: true          # Default: true if permissions/ folder exists
 
 compatible_with:             # Optional. Hints for agent tools
-  - claude-code
-  - cursor
+  - claude-code              # Anthropic Claude Code
+  - cursor                   # Cursor
+  - windsurf                 # Codeium Windsurf
+  - github-copilot           # GitHub Copilot
+  - gemini-cli               # Google Gemini CLI
+  - codex                    # OpenAI Codex CLI
+  - kiro                     # AWS Kiro
+  - junie                    # JetBrains Junie
+  - trae                     # ByteDance Trae
+  - zed                      # Zed
+  - roo-code                 # Roo Code
+  - codo                     # Codo
+  - antigravity              # Antigravity
+  - firebase-studio          # Google Firebase Studio
   - any                      # "any" = no tool-specific behavior required
 ```
 

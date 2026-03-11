@@ -2,7 +2,7 @@
 
 ## The problem with today's agentic tools
 
-Every AI coding tool invents its own configuration format. Claude Code uses `CLAUDE.md`. Cursor uses `.cursorrules`. GitHub Copilot has its own conventions. AGENTS.md standardizes instructions but not structure, permissions, or agent roles.
+Every AI coding tool invents its own configuration format. Claude Code uses `CLAUDE.md`. Cursor uses `.cursorrules`. Windsurf uses `.windsurfrules`. GitHub Copilot uses `.github/copilot-instructions.md`. Gemini CLI uses `GEMINI.md`. JetBrains Junie uses `.junie/guidelines.md`. Kiro uses a `.kiro/` folder. Trae, Roo Code, Zed, Codex, Codo, Antigravity, Firebase Studio — each with its own format. AGENTS.md standardizes instructions but not structure, permissions, or agent roles.
 
 If you use more than one tool — or your team uses different tools — you're duplicating effort. Knowledge stays trapped in vendor-specific formats. When you switch tools, you lose your configuration.
 

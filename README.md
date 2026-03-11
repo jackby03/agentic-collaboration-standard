@@ -13,7 +13,14 @@ ACS defines how projects describe themselves to AI agents — through a single `
 Every agentic tool invents its own configuration format:
 - Claude Code → `CLAUDE.md` + `.claude/`
 - Cursor → `.cursorrules`
-- GitHub Copilot → its own conventions
+- Windsurf → `.windsurfrules`
+- GitHub Copilot → `.github/copilot-instructions.md`
+- Gemini CLI → `GEMINI.md`
+- OpenAI Codex → `CODEX.md`
+- JetBrains Junie → `.junie/guidelines.md`
+- Kiro → `.kiro/` (specs, hooks, steering)
+- Trae → `.trae/rules/`
+- Zed, Roo Code, Codo, Antigravity, Firebase Studio → each with its own format
 - AGENTS.md → instructions only, no structure
 
 Teams working with multiple tools duplicate effort. Knowledge stays trapped in vendor-specific formats.
@@ -76,7 +83,7 @@ MD
 ACS is designed to coexist with existing standards:
 - Works alongside `AGENTS.md`
 - Compatible with `SKILL.md` (agentskills.io)
-- Generates `CLAUDE.md` content on demand
+- Compiles to `CLAUDE.md`, `.cursorrules`, `.windsurfrules`, and more via `acs compile`
 - Complements MCP (different layer)
 
 See [compatibility guides →](compatibility/)

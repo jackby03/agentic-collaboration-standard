@@ -13,6 +13,4 @@ layers:
   permissions: true
 
 compatible_with:
-  - claude-code
-  - cursor
   - any
