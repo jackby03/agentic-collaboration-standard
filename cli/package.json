@@ -1,6 +1,6 @@
 {
   "name": "agentic-standard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI for the Agentic Collaboration Standard",
   "keywords": ["acs", "agentic", "collaboration", "standard", "ai", "agents"],
   "homepage": "https://acs.jackby03.com",
@@ -13,7 +13,8 @@
     "acs": "./dist/index.js"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup",
