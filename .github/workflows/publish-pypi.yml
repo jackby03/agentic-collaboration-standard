@@ -1,0 +1,55 @@
+name: Publish to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to publish"
+        required: true
+        type: choice
+        options:
+          - acs-cli
+          - acs-validator
+
+jobs:
+  publish-acs-cli:
+    name: Publish acs-cli
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.package == 'acs-cli' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: pip install build twine
+      - name: Build
+        run: python -m build
+        working-directory: packages/python/
+      - name: Publish
+        run: twine upload dist/*
+        working-directory: packages/python/
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+  publish-validator:
+    name: Publish acs-validator
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.package == 'acs-validator' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install build tools
+        run: pip install build twine
+      - name: Build
+        run: python -m build
+        working-directory: reference-impl/python/
+      - name: Publish
+        run: twine upload dist/*
+        working-directory: reference-impl/python/
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

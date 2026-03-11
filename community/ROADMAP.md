@@ -1,7 +1,7 @@
 # ACS Roadmap
 
-> Last updated: 2026-03-10
-> Current version: **v1.0-draft**
+> Last updated: 2026-03-11
+> Current version: **v1.0** *(pending release evaluation)*
 > Maintainer: [@jackby03](https://github.com/jackby03)
 
 This roadmap covers everything from immediate stabilization work to long-term governance goals. Items are grouped by phase, ordered by priority within each phase, and tagged with effort and impact estimates.
@@ -46,21 +46,21 @@ This roadmap covers everything from immediate stabilization work to long-term go
 
 The CLI is the single highest-leverage investment in Phase 1. It removes the main adoption barrier: manually reading the spec and creating files by hand.
 
-- [ ] **`acs init`** — interactive scaffold that generates `.agents/main.yaml` + `context/project.md`; detects framework/language from `package.json`, `pyproject.toml`, `Cargo.toml`, etc.
-- [ ] **`acs validate`** — validates all ACS files in the current project against the JSON schemas; exits non-zero on error (CI-friendly)
-- [ ] **`acs ls`** — lists all active layers, skills, commands, and agents discovered in `.agents/`
-- [ ] **Publish to npm as `acs`** — single install: `npm install -g acs` or `npx acs init`
-- [ ] **Publish to PyPI as `acs-cli`** — `pip install acs-cli` or `pipx install acs-cli`
+- [x] **`acs init`** — interactive scaffold that generates `.agents/main.yaml` + `context/project.md`; detects framework/language from `package.json`, `pyproject.toml`, `Cargo.toml`, etc.
+- [x] **`acs validate`** — validates all ACS files in the current project against the JSON schemas; exits non-zero on error (CI-friendly)
+- [x] **`acs ls`** — lists all active layers, skills, commands, and agents discovered in `.agents/`
+- [x] **Publish to npm as `acs`** — single install: `npm install -g acs` or `npx acs init`
+- [x] **Publish to PyPI as `acs-cli`** — `pip install acs-cli` or `pipx install acs-cli`
 
 ### Package Libraries
 
-- [ ] **Publish `@acs/validator` to npm** — wraps the TypeScript reference implementation; usable as a library in CI or editor plugins
-- [ ] **Publish `acs-validator` to PyPI** — wraps the Python reference implementation; importable as `from acs_validator import validate_project`
-- [ ] **Semantic versioning and changelog** — establish semver for both packages from `1.0.0`
+- [x] **Publish `@acs/validator` to npm** — wraps the TypeScript reference implementation; usable as a library in CI or editor plugins
+- [x] **Publish `acs-validator` to PyPI** — wraps the Python reference implementation; importable as `from acs_validator import validate_project`
+- [x] **Semantic versioning and changelog** — establish semver for both packages from `1.0.0`
 
 ### Editor Tooling
 
-- [ ] **VS Code extension (MVP)** — registers the JSON schemas for `main.yaml` and `policy.yaml` automatically when a `.agents/` folder is detected; provides YAML autocomplete and inline validation without any manual settings.json edits
+- [x] **VS Code extension (MVP)** — registers the JSON schemas for `main.yaml` and `policy.yaml` automatically when a `.agents/` folder is detected; provides YAML autocomplete and inline validation without any manual settings.json edits
 - [ ] **JetBrains plugin stub** — minimal plugin that registers schemas for IntelliJ-family IDEs; enough to get YAML validation in Junie
 - [ ] **`.editorconfig` / `.vscode/settings.json` snippets** — provide copy-paste snippets in docs for teams that don't want to install an extension
 

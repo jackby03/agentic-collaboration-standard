@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acs-validator"
+version = "1.0.0"
+description = "ACS v1.0 reference parser and validator (Python)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["acs", "agentic", "collaboration", "standard", "validator"]
+dependencies = ["pyyaml>=6.0"]
+
+[project.urls]
+Homepage = "https://acs.jackby03.com"
+Repository = "https://github.com/jackby03/agentic-collaboration-standard"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["acs_validator*", "acs_parser*"]

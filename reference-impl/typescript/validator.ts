@@ -6,7 +6,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as yaml from "js-yaml";
 
-interface ValidationResult {
+export interface ValidationResult {
   errors: string[];
   warnings: string[];
 }

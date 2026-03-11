@@ -1,0 +1,66 @@
+{
+  "name": "acs-vscode",
+  "displayName": "Agentic Collaboration Standard",
+  "description": "YAML autocomplete and inline validation for .agents/ folders (ACS v1.0)",
+  "version": "0.1.0",
+  "publisher": "jackby03",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackby03/agentic-collaboration-standard"
+  },
+  "homepage": "https://acs.jackby03.com",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "acs",
+    "agentic",
+    "collaboration",
+    "standard",
+    "yaml",
+    "ai",
+    "agents"
+  ],
+  "activationEvents": [
+    "workspaceContains:.agents/main.yaml"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "yamlValidation": [
+      {
+        "fileMatch": "**/.agents/main.yaml",
+        "url": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/manifest.schema.json"
+      },
+      {
+        "fileMatch": "**/.agents/permissions/policy.yaml",
+        "url": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/permissions.schema.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "acs.validate",
+        "title": "ACS: Validate Project"
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "redhat.vscode-yaml"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.4.0"
+  }
+}

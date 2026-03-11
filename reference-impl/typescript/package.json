@@ -1,11 +1,22 @@
 {
-  "name": "@acs/reference-impl",
+  "name": "@acs/validator",
   "version": "1.0.0",
   "description": "ACS v1.0 reference parser and validator (TypeScript)",
-  "private": true,
+  "keywords": ["acs", "agentic", "collaboration", "standard", "validator"],
+  "homepage": "https://acs.jackby03.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackby03/agentic-collaboration-standard",
+    "directory": "reference-impl/typescript"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist/"],
   "scripts": {
+    "build": "tsc",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "build": "tsc"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

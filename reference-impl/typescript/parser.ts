@@ -7,20 +7,20 @@ import * as fs from "fs";
 import * as path from "path";
 import * as yaml from "js-yaml";
 
-interface ACSManifest {
+export interface ACSManifest {
   version: string;
   project: { name: string; description: string; language?: string; framework?: string };
   layers?: Record<string, boolean>;
   compatible_with?: string[];
 }
 
-interface ACSSkill {
+export interface ACSSkill {
   name: string;
   description: string;
   location: string;
 }
 
-interface ACSProject {
+export interface ACSProject {
   root: string;
   manifest: ACSManifest;
   skills: ACSSkill[];

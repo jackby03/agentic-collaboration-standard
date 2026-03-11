@@ -1,0 +1,57 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to publish"
+        required: true
+        type: choice
+        options:
+          - acs (CLI)
+          - "@acs/validator"
+
+jobs:
+  publish-acs-cli:
+    name: Publish acs CLI
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.package == 'acs (CLI)' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: cli/
+      - name: Build
+        run: npm run build
+        working-directory: cli/
+      - name: Publish
+        run: npm publish --access public
+        working-directory: cli/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-validator:
+    name: Publish @acs/validator
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.package == '@acs/validator' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: reference-impl/typescript/
+      - name: Build
+        run: npm run build
+        working-directory: reference-impl/typescript/
+      - name: Publish
+        run: npm publish --access public
+        working-directory: reference-impl/typescript/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
