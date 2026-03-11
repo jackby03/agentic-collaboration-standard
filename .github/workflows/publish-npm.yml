@@ -15,6 +15,7 @@ jobs:
   publish-acs-cli:
     name: Publish acs CLI
     runs-on: ubuntu-latest
+    environment: npm-publishing
     if: ${{ github.event.inputs.package == 'acs (CLI)' }}
     steps:
       - uses: actions/checkout@v4
@@ -37,6 +38,7 @@ jobs:
   publish-validator:
     name: Publish @acs/validator
     runs-on: ubuntu-latest
+    environment: npm-publishing
     if: ${{ github.event.inputs.package == '@acs/validator' }}
     steps:
       - uses: actions/checkout@v4
