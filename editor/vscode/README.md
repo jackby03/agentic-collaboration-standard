@@ -23,7 +23,7 @@ This extension depends on [YAML by Red Hat](https://marketplace.visualstudio.com
 
 ```bash
 # Node.js
-npm install -g acs
+npm install -g agentic-standard
 
 # Python
 pip install agentic-standard

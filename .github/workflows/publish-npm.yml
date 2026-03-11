@@ -8,15 +8,15 @@ on:
         required: true
         type: choice
         options:
-          - acs (CLI)
+          - agentic-standard (CLI)
           - "@acs/validator"
 
 jobs:
   publish-acs-cli:
-    name: Publish acs CLI
+    name: Publish agentic-standard CLI
     runs-on: ubuntu-latest
     environment: npm-publishing
-    if: ${{ github.event.inputs.package == 'acs (CLI)' }}
+    if: ${{ github.event.inputs.package == 'agentic-standard (CLI)' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
