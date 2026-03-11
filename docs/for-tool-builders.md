@@ -7,7 +7,7 @@ If you're building an AI agent, IDE, or CLI tool, adding ACS support makes your 
 The full behavioral specification is in [spec/v1/10-behavior.md](../spec/v1/10-behavior.md).
 
 **Minimum viable implementation (required):**
-- Scan for `.agents/acs.yaml` at session start
+- Scan for `.agents/main.yaml` at session start
 - Parse the manifest to determine active layers
 - Load `context/project.md` into session context
 - Enforce `permissions/policy.yaml` rules on file operations

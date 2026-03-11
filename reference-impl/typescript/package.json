@@ -1,0 +1,29 @@
+{
+  "name": "@acs/reference-impl",
+  "version": "1.0.0",
+  "description": "ACS v1.0 reference parser and validator (TypeScript)",
+  "private": true,
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.4.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": ["<rootDir>/../../tests/typescript/**/*.test.ts"],
+    "moduleNameMapper": {
+      "^../../reference-impl/typescript/(.*)$": "<rootDir>/$1"
+    }
+  }
+}

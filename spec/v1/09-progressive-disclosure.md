@@ -13,7 +13,7 @@ Progressive disclosure is the core loading strategy of ACS. It keeps agent conte
 ## What loads at each tier
 
 ### Tier 1 (always in context)
-- `acs.yaml` — full manifest
+- `main.yaml` — full manifest
 - `permissions/policy.yaml` — full permissions
 - `context/project.md` — full project context
 - **Names and descriptions only** of: skills, commands, agents

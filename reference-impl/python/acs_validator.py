@@ -12,10 +12,10 @@ def validate_manifest(path: Path) -> List[str]:
     errors = []
     with open(path) as f:
         data = yaml.safe_load(f)
-    if not data.get("acs_version"):
-        errors.append("Missing required field: acs_version")
-    elif data["acs_version"] != "1.0":
-        errors.append(f"Unknown acs_version: {data['acs_version']}")
+    if not data.get("version"):
+        errors.append("Missing required field: version")
+    elif data["version"] != "1.0":
+        errors.append(f"Unknown version: {data['version']}")
     if "project" not in data:
         errors.append("Missing required section: project")
     else:
@@ -51,9 +51,9 @@ def validate_skill(path: Path) -> List[str]:
 
 def validate_project(root: Path) -> dict:
     results = {"errors": [], "warnings": []}
-    manifest = root / ".agents" / "acs.yaml"
+    manifest = root / ".agents" / "main.yaml"
     if not manifest.exists():
-        results["errors"].append("Missing .agents/acs.yaml")
+        results["errors"].append("Missing .agents/main.yaml")
         return results
     results["errors"].extend(validate_manifest(manifest))
     for skill_md in (root / ".agents" / "skills").rglob("SKILL.md"):
@@ -61,9 +61,12 @@ def validate_project(root: Path) -> dict:
     return results
 
 if __name__ == "__main__":
-    results = validate_project(Path.cwd())
+    import sys
+    root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.cwd()
+    results = validate_project(root)
     if results["errors"]:
-        print("❌ Validation failed:")
+        print(f"❌ Validation failed: {root}")
         for e in results["errors"]: print(f"  - {e}")
+        sys.exit(1)
     else:
-        print("✅ ACS project is valid")
+        print(f"✅ {root} is valid")

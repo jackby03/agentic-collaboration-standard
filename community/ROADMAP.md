@@ -26,7 +26,7 @@ This roadmap covers everything from immediate stabilization work to long-term go
 
 ### Tests
 
-- [ ] **Add automated tests for Python validator** — pytest suite covering: valid manifest, missing `acs_version`, bad `project.name` format, missing description, malformed skill frontmatter, missing `SKILL.md`
+- [ ] **Add automated tests for Python validator** — pytest suite covering: valid manifest, missing `version`, bad `project.name` format, missing description, malformed skill frontmatter, missing `SKILL.md`
 - [ ] **Add automated tests for TypeScript validator** — equivalent Vitest/Jest suite for `validator.ts`
 - [ ] **Wire tests into CI** — update `validate.yml` to run both test suites on every push and PR
 
@@ -46,7 +46,7 @@ This roadmap covers everything from immediate stabilization work to long-term go
 
 The CLI is the single highest-leverage investment in Phase 1. It removes the main adoption barrier: manually reading the spec and creating files by hand.
 
-- [ ] **`acs init`** — interactive scaffold that generates `.agents/acs.yaml` + `context/project.md`; detects framework/language from `package.json`, `pyproject.toml`, `Cargo.toml`, etc.
+- [ ] **`acs init`** — interactive scaffold that generates `.agents/main.yaml` + `context/project.md`; detects framework/language from `package.json`, `pyproject.toml`, `Cargo.toml`, etc.
 - [ ] **`acs validate`** — validates all ACS files in the current project against the JSON schemas; exits non-zero on error (CI-friendly)
 - [ ] **`acs ls`** — lists all active layers, skills, commands, and agents discovered in `.agents/`
 - [ ] **Publish to npm as `acs`** — single install: `npm install -g acs` or `npx acs init`
@@ -60,7 +60,7 @@ The CLI is the single highest-leverage investment in Phase 1. It removes the mai
 
 ### Editor Tooling
 
-- [ ] **VS Code extension (MVP)** — registers the JSON schemas for `acs.yaml` and `policy.yaml` automatically when a `.agents/` folder is detected; provides YAML autocomplete and inline validation without any manual settings.json edits
+- [ ] **VS Code extension (MVP)** — registers the JSON schemas for `main.yaml` and `policy.yaml` automatically when a `.agents/` folder is detected; provides YAML autocomplete and inline validation without any manual settings.json edits
 - [ ] **JetBrains plugin stub** — minimal plugin that registers schemas for IntelliJ-family IDEs; enough to get YAML validation in Junie
 - [ ] **`.editorconfig` / `.vscode/settings.json` snippets** — provide copy-paste snippets in docs for teams that don't want to install an extension
 
@@ -73,7 +73,7 @@ The CLI is the single highest-leverage investment in Phase 1. It removes the mai
 ### Tool Integrations
 
 - [ ] **Claude Code integration** — open a formal issue/discussion on the Claude Code repository proposing native `.agents/` support; provide the reference implementation and conformance checklist as supporting material
-- [ ] **Cursor integration** — engage with Cursor's community forum to propose `.agents/` as a complement to `.cursor/rules/`; the `compatible_with: cursor` field in `acs.yaml` already signals intent
+- [ ] **Cursor integration** — engage with Cursor's community forum to propose `.agents/` as a complement to `.cursor/rules/`; the `compatible_with: cursor` field in `main.yaml` already signals intent
 - [ ] **Windsurf / Codeium** — similar outreach; `.windsurfrules` is already listed as a fragmentation pain point on the ACS landing page
 - [ ] **Zed integration** — Zed is rapidly adding agentic features; engage early while the architecture is still malleable
 - [ ] **Roo Code integration** — Roo Code already has a custom rules format (`.clinerules`); propose ACS as a portable alternative
@@ -120,7 +120,7 @@ The CLI is the single highest-leverage investment in Phase 1. It removes the mai
 
 ### Manifest
 
-- [ ] **`maintainers` field** — list project maintainers in `acs.yaml` for enterprise attribution
+- [ ] **`maintainers` field** — list project maintainers in `main.yaml` for enterprise attribution
 - [ ] **`extends` field** — allow a project manifest to extend a base manifest (e.g., from a shared org-level `.agents/`)
 - [ ] **`tags` field** — enable skill/command discovery registries to index projects by domain
 

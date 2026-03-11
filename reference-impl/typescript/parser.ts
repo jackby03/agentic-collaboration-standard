@@ -8,7 +8,7 @@ import * as path from "path";
 import * as yaml from "js-yaml";
 
 interface ACSManifest {
-  acs_version: string;
+  version: string;
   project: { name: string; description: string; language?: string; framework?: string };
   layers?: Record<string, boolean>;
   compatible_with?: string[];
@@ -32,7 +32,7 @@ interface ACSProject {
 export function findACSRoot(start: string = process.cwd()): string | null {
   let current = path.resolve(start);
   while (true) {
-    const candidate = path.join(current, ".agents", "acs.yaml");
+    const candidate = path.join(current, ".agents", "main.yaml");
     if (fs.existsSync(candidate)) return current;
     const parent = path.dirname(current);
     if (parent === current) return null;
@@ -41,7 +41,7 @@ export function findACSRoot(start: string = process.cwd()): string | null {
 }
 
 export function parseManifest(root: string): ACSManifest {
-  const content = fs.readFileSync(path.join(root, ".agents", "acs.yaml"), "utf8");
+  const content = fs.readFileSync(path.join(root, ".agents", "main.yaml"), "utf8");
   return yaml.load(content) as ACSManifest;
 }
 

@@ -10,7 +10,7 @@ During transition, keep both:
 your-project/
 ├── CLAUDE.md          # Claude Code still reads this
 └── .agents/           # ACS: portable, tool-agnostic
-    ├── acs.yaml
+    ├── main.yaml
     ├── context/
     │   └── project.md
     ├── skills/

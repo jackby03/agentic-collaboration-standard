@@ -8,7 +8,7 @@ ACS uses a `.agents/` folder at the root of the project:
 your-project/
 ├── AGENTS.md                  # Optional: human+agent overview (agents.md compatible)
 └── .agents/                   # ACS root folder
-    ├── acs.yaml               # Required: project manifest
+    ├── main.yaml               # Required: project manifest
     ├── context/               # Optional layer
     ├── skills/                # Optional layer
     ├── commands/              # Optional layer
@@ -18,11 +18,11 @@ your-project/
 
 ## Minimal valid ACS project
 
-The only required file is `acs.yaml`:
+The only required file is `main.yaml`:
 
 ```
 .agents/
-└── acs.yaml
+└── main.yaml
 ```
 
 ## Nested projects (monorepos)
@@ -32,14 +32,14 @@ In monorepos, each package can have its own `.agents/` folder. The nearest `.age
 ```
 monorepo/
 ├── .agents/           # Root: shared context
-│   └── acs.yaml
+│   └── main.yaml
 ├── packages/
 │   ├── api/
 │   │   └── .agents/   # Package-specific override
-│   │       └── acs.yaml
+│   │       └── main.yaml
 │   └── web/
 │       └── .agents/
-│           └── acs.yaml
+│           └── main.yaml
 ```
 
 ## Cross-client interoperability

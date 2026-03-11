@@ -1,11 +1,11 @@
-# 3. Manifest — `acs.yaml`
+# 3. Manifest — `main.yaml`
 
 The manifest is the entry point for ACS. It declares which layers are active and provides project metadata.
 
 ## Required fields
 
 ```yaml
-acs_version: "1.0"
+version: "1.0"
 project:
   name: "my-project"
   description: "A short description of what this project does"
@@ -14,7 +14,7 @@ project:
 ## Full schema
 
 ```yaml
-acs_version: "1.0"          # Required. Must be "1.0" for v1 compliance
+version: "1.0"             # Required. Must be "1.0" for v1 compliance
 
 project:
   name: "my-project"         # Required. Lowercase, hyphens allowed

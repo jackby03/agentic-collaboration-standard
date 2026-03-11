@@ -1,7 +1,8 @@
 name: Validate ACS Examples
 on: [push, pull_request]
 jobs:
-  validate:
+  validate-examples:
+    name: Validate example projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -10,7 +11,29 @@ jobs:
       - run: pip install pyyaml
       - name: Validate example projects
         run: |
+          failed=0
           for dir in examples/*/; do
             echo "Validating $dir"
-            python reference-impl/python/acs_validator.py
+            python reference-impl/python/acs_validator.py "$dir" || failed=1
           done
+          exit $failed
+
+  test-python:
+    name: Python validator tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml pytest
+      - run: pytest tests/python/ -v
+
+  test-typescript:
+    name: TypeScript validator tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: cd reference-impl/typescript && npm install
+      - run: cd reference-impl/typescript && npm test

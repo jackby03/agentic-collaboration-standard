@@ -8,10 +8,10 @@ mkdir -p .agents
 
 ## Step 2 — Add the manifest
 
-Create `.agents/acs.yaml`:
+Create `.agents/main.yaml`:
 
 ```yaml
-acs_version: "1.0"
+version: "1.0"
 project:
   name: "your-project-name"
   description: "What your project does in one sentence"

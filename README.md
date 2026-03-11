@@ -41,7 +41,7 @@ One folder for ACS-compatible agents.
 ```
 your-project/
 └── .agents/
-    ├── acs.yaml          # Manifest: what this project uses
+    ├── main.yaml          # Manifest: what this project uses
     ├── context/          # What agents need to KNOW
     ├── skills/           # What agents can DO
     ├── commands/         # Reusable single-shot tasks
@@ -56,8 +56,8 @@ your-project/
 mkdir -p .agents/context
 
 # 2. Add your manifest
-cat > .agents/acs.yaml << 'YAML'
-acs_version: "1.0"
+cat > .agents/main.yaml << 'YAML'
+version: "1.0"
 project:
   name: my-project
   description: "A brief description of your project"

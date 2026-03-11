@@ -1,4 +1,4 @@
-acs_version: "1.0"
+version: "1.0"
 project:
   name: "my-app"
   description: "E-commerce storefront built with Next.js and PostgreSQL"

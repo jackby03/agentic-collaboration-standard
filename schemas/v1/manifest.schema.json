@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/manifest.schema.json",
   "title": "ACS Manifest",
-  "description": "Schema for .agents/acs.yaml",
+  "description": "Schema for .agents/main.yaml",
   "type": "object",
-  "required": ["acs_version", "project"],
+  "required": ["version", "project"],
   "properties": {
-    "acs_version": {
+    "version": {
       "type": "string",
       "enum": ["1.0"],
       "description": "ACS specification version"

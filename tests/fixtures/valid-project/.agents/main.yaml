@@ -1,0 +1,7 @@
+version: "1.0"
+project:
+  name: "test-project"
+  description: "A valid ACS test project used in automated tests"
+layers:
+  context: true
+  skills: true

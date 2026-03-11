@@ -1,4 +1,4 @@
-acs_version: "1.0"
+version: "1.0"
 project:
   name: "platform-api"
   description: "Internal REST API powering the platform. Node.js, PostgreSQL, deployed on AWS."

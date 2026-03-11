@@ -11,7 +11,7 @@ from typing import Optional
 
 @dataclass
 class ACSManifest:
-    acs_version: str
+    version: str
     project_name: str
     project_description: str
     layers: dict
@@ -32,21 +32,21 @@ class ACSProject:
     agents: list[Path]
 
 def find_acs_root(start: Path) -> Optional[Path]:
-    """Walk up from start path to find .agents/acs.yaml"""
+    """Walk up from start path to find .agents/main.yaml"""
     current = start.resolve()
     while current != current.parent:
-        candidate = current / ".agents" / "acs.yaml"
+        candidate = current / ".agents" / "main.yaml"
         if candidate.exists():
             return current
         current = current.parent
     return None
 
 def parse_manifest(root: Path) -> ACSManifest:
-    manifest_path = root / ".agents" / "acs.yaml"
+    manifest_path = root / ".agents" / "main.yaml"
     with open(manifest_path) as f:
         data = yaml.safe_load(f)
     return ACSManifest(
-        acs_version=data["acs_version"],
+        version=data["version"],
         project_name=data["project"]["name"],
         project_description=data["project"]["description"],
         layers=data.get("layers", {})

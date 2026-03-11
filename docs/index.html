@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACS — Agentic Collaboration Standard</title>
   <meta name="description" content="A unified open format for agent-ready projects. One .agents/ folder for ACS-compatible agents and tools." />
+  <link rel="canonical" href="https://agentcollab.dev/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agentcollab.dev/" />
+  <meta property="og:title" content="ACS — Agentic Collaboration Standard" />
+  <meta property="og:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering project context across CLAUDE.md, .cursorrules, GEMINI.md, and a dozen vendor-specific files." />
+  <meta property="og:site_name" content="Agentic Collaboration Standard" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ACS — Agentic Collaboration Standard" />
+  <meta name="twitter:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering context across vendor-specific files." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -196,11 +207,11 @@
   </div>
   <div class="hero-code">
     <div class="cw">
-      <div class="ctb"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><span class="cfn">.agents/acs.yaml</span></div>
+      <div class="ctb"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><span class="cfn">.agents/main.yaml</span></div>
       <div class="cb">
         <div><span class="cc"># ACS Manifest v1.0</span></div>
         <div>&nbsp;</div>
-        <div><span class="ck">acs_version</span>: <span class="cs">"1.0"</span></div>
+        <div><span class="ck">version</span>: <span class="cs">"1.0"</span></div>
         <div>&nbsp;</div>
         <div><span class="ck">project</span>:</div>
         <div class="ci"><span class="ck">name</span>: <span class="cs">"my-app"</span></div>
@@ -229,8 +240,8 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="tt">
-    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span>
-    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span>
+    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span><span class="ti">one folder <span class="ts">·</span></span><span class="ti">human readable <span class="ts">·</span></span><span class="ti">git friendly <span class="ts">·</span></span><span class="ti">monorepo support <span class="ts">·</span></span><span class="ti">AGENTS.md compatible <span class="ts">·</span></span><span class="ti">v1.0 draft <span class="ts">·</span></span><span class="ti">B1–B6 conformance <span class="ts">·</span></span><span class="ti">no runtime required <span class="ts">·</span></span><span class="ti">plain markdown <span class="ts">·</span></span><span class="ti">tier 1 / 2 / 3 loading <span class="ts">·</span></span>
+    <span class="ti">context <span class="ts">·</span></span><span class="ti">skills <span class="ts">·</span></span><span class="ti">commands <span class="ts">·</span></span><span class="ti">agents <span class="ts">·</span></span><span class="ti">permissions <span class="ts">·</span></span><span class="ti">progressive disclosure <span class="ts">·</span></span><span class="ti">vendor neutral <span class="ts">·</span></span><span class="ti">open standard <span class="ts">·</span></span><span class="ti">SKILL.md compatible <span class="ts">·</span></span><span class="ti">MCP ready <span class="ts">·</span></span><span class="ti">one folder <span class="ts">·</span></span><span class="ti">human readable <span class="ts">·</span></span><span class="ti">git friendly <span class="ts">·</span></span><span class="ti">monorepo support <span class="ts">·</span></span><span class="ti">AGENTS.md compatible <span class="ts">·</span></span><span class="ti">v1.0 draft <span class="ts">·</span></span><span class="ti">B1–B6 conformance <span class="ts">·</span></span><span class="ti">no runtime required <span class="ts">·</span></span><span class="ti">plain markdown <span class="ts">·</span></span><span class="ti">tier 1 / 2 / 3 loading <span class="ts">·</span></span>
   </div>
 </div>
 
@@ -307,7 +318,7 @@
             <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tfi">AGENTS.md</span>&nbsp;<span class="tc"># human overview</span></div>
             <div class="tl"><span class="tb">└─</span>&nbsp;<span class="tf">.agents/</span>&nbsp;<span class="tc">&nbsp;&nbsp;&nbsp;# ACS root</span></div>
             <div class="ti2">
-              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="th">acs.yaml</span>&nbsp;<span class="tc">&nbsp;&nbsp;&nbsp;# manifest</span></div>
+              <div class="tl"><span class="tb">├─</span>&nbsp;<span class="th">main.yaml</span>&nbsp;<span class="tc">&nbsp;&nbsp;&nbsp;# manifest</span></div>
               <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">context/</span></div>
               <div class="ti2"><div class="tl"><span class="tb">└─</span>&nbsp;<span class="tfi">project.md</span></div></div>
               <div class="tl"><span class="tb">├─</span>&nbsp;<span class="tf">skills/</span></div>
@@ -372,7 +383,7 @@
       <div class="ctax">
         <div class="stag">Get started</div>
         <h2 class="stit">Your project,<br/>agent-ready in minutes.</h2>
-        <p>Create a .agents/ folder. Add acs.yaml. Write context. Done — any ACS-compatible agent picks it up automatically.</p>
+        <p>Create a .agents/ folder. Add main.yaml. Write context. Done — any ACS-compatible agent picks it up automatically.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">View on GitHub →</a>
           <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Read the spec</a>

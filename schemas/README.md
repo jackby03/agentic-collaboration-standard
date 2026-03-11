@@ -9,7 +9,7 @@ Add to `.vscode/settings.json`:
 ```json
 {
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/manifest.schema.json": ".agents/acs.yaml",
+    "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/manifest.schema.json": ".agents/main.yaml",
     "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/permissions.schema.json": ".agents/permissions/policy.yaml"
   }
 }

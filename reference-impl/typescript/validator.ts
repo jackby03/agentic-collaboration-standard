@@ -14,8 +14,8 @@ interface ValidationResult {
 export function validateManifest(filePath: string): string[] {
   const errors: string[] = [];
   const data = yaml.load(fs.readFileSync(filePath, "utf8")) as Record<string, unknown>;
-  if (!data.acs_version) errors.push("Missing required field: acs_version");
-  else if (data.acs_version !== "1.0") errors.push(`Unknown acs_version: ${data.acs_version}`);
+  if (!data.version) errors.push("Missing required field: version");
+  else if (data.version !== "1.0") errors.push(`Unknown version: ${data.version}`);
   const project = data.project as Record<string, string> | undefined;
   if (!project) { errors.push("Missing required section: project"); }
   else {
@@ -29,8 +29,8 @@ export function validateManifest(filePath: string): string[] {
 
 export function validateProject(root: string): ValidationResult {
   const result: ValidationResult = { errors: [], warnings: [] };
-  const manifest = path.join(root, ".agents", "acs.yaml");
-  if (!fs.existsSync(manifest)) { result.errors.push("Missing .agents/acs.yaml"); return result; }
+  const manifest = path.join(root, ".agents", "main.yaml");
+  if (!fs.existsSync(manifest)) { result.errors.push("Missing .agents/main.yaml"); return result; }
   result.errors.push(...validateManifest(manifest));
   return result;
 }

@@ -5,10 +5,10 @@ This section defines how a **compliant ACS client** must behave. Implementing th
 ## Required behaviors
 
 ### B1 — Discovery
-The agent MUST scan for `.agents/acs.yaml` at session start to determine if the project is ACS-enabled.
+The agent MUST scan for `.agents/main.yaml` at session start to determine if the project is ACS-enabled.
 
 ### B2 — Manifest loading
-If `acs.yaml` is found, the agent MUST parse it and determine which layers are active.
+If `main.yaml` is found, the agent MUST parse it and determine which layers are active.
 
 ### B3 — Permissions enforcement
 If `permissions/policy.yaml` exists, the agent MUST apply deny rules before any file read or write operation.
