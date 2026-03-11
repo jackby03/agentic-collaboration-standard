@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACS — Agentic Collaboration Standard</title>
-  <meta name="description" content="A unified open format for agent-ready projects. One .agents/ folder. Any tool. Any agent." />
+  <meta name="description" content="A unified open format for agent-ready projects. One .agents/ folder for ACS-compatible agents and tools." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -188,8 +188,8 @@
     <span class="badge">Open Standard</span>
   </div>
   <h1>Agentic<br/><span class="hi">Collaboration</span><br/>Standard</h1>
-  <p class="hero-sub">One folder. Any agent. Any tool.</p>
-  <p class="hero-desc">ACS defines a unified <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.agents/</code> folder for agent-ready projects. Instead of scattering project guidance across <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">CLAUDE.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.cursorrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.github/copilot-instructions.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">GEMINI.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.windsurfrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.clinerules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.junie/guidelines.md</code>, and a dozen more vendor-specific files, write your context, skills, and permissions once and carry them across every tool.</p>
+  <p class="hero-sub">One folder. Any ACS-compatible agent.</p>
+  <p class="hero-desc">ACS defines a unified <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.agents/</code> folder for agent-ready projects. Instead of scattering project guidance across <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">CLAUDE.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.cursorrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.github/copilot-instructions.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">GEMINI.md</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.windsurfrules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.clinerules</code>, <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);background:rgba(184,255,87,.08);padding:2px 6px;border-radius:2px">.junie/guidelines.md</code>, and a dozen more vendor-specific files, write your context, skills, and permissions once for ACS-compatible tools.</p>
   <div class="hero-actions">
     <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">Get started →</a>
     <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Read the spec</a>
@@ -248,7 +248,7 @@
     <div class="reveal">
       <div class="stag">The problem</div>
       <h2 class="stit">Every tool reinvents<br/>the same wheel.</h2>
-      <p class="sdesc">Agent configuration is fragmented. Your context, skills, and rules live in vendor-specific formats that don't travel.</p>
+      <p class="sdesc">Agent configuration is fragmented. Your context, skills, and rules live in vendor-specific formats that don't travel. File examples below are illustrative and can evolve by vendor version.</p>
     </div>
     <div class="pgrid reveal">
       <div class="pcol">
@@ -272,7 +272,7 @@
         <div class="pcl"><span class="dgr"></span>With ACS</div>
         <div class="pitems">
           <div class="si"><span class="chk">✓</span>&nbsp;One .agents/ folder for everything</div>
-          <div class="si"><span class="chk">✓</span>&nbsp;Same config across all tools</div>
+          <div class="si"><span class="chk">✓</span>&nbsp;One spec across ACS-compatible tools</div>
           <div class="si"><span class="chk">✓</span>&nbsp;Explicit, version-controlled permissions</div>
           <div class="si"><span class="chk">✓</span>&nbsp;SKILL.md-compatible reusable skills</div>
           <div class="si"><span class="chk">✓</span>&nbsp;Portable when you switch tools</div>

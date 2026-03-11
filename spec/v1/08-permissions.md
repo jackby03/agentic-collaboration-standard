@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The permissions layer defines what agents are allowed to read, write, and execute. It acts as a safety boundary.
+The permissions layer defines what agents are allowed to read and write. It acts as a safety boundary.
 
 ## Structure
 
@@ -46,6 +46,10 @@ allow:
 ## Loading behavior
 
 Permissions are **Tier 1** — always loaded at session start. Agents must respect these rules before performing any file operation.
+
+## v1 scope note
+
+In ACS v1.0, `policy.yaml` supports `read` and `write` rules only. Execution policy is out of scope for v1 and may be introduced in a future version.
 
 ## Glob patterns
 

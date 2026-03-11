@@ -6,7 +6,7 @@
 [![Status: Draft v1.0](https://img.shields.io/badge/Status-Draft%20v1.0-yellow.svg)](spec/v1/)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](CONTRIBUTING.md)
 
-ACS defines how projects describe themselves to AI agents through a single `.agents/` folder that any compatible agent can read, regardless of which tool, IDE, or platform you use.
+ACS defines how projects describe themselves to AI agents through a single `.agents/` folder that any ACS-compatible agent can read, regardless of which tool, IDE, or platform you use.
 
 ## The problem
 
@@ -30,11 +30,13 @@ In practice, that fragmentation shows up in vendor-specific files and folders:
 | Aider | `.aider.conf.yml` or `CONVENTIONS.md` |
 | AGENTS.md-based tools | `AGENTS.md` |
 
+Note: this table is a compatibility landscape snapshot for context, not a normative ACS contract. Tool-specific file names can change over time.
+
 Teams working with multiple tools duplicate effort. Knowledge stays trapped in vendor-specific formats.
 
 ## The solution
 
-One folder. Any agent.
+One folder for ACS-compatible agents.
 
 ```
 your-project/

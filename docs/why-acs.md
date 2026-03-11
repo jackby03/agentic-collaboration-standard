@@ -20,13 +20,15 @@ Every AI coding tool invents its own configuration format. Here is what that fra
 | Aider | `.aider.conf.yml` or `CONVENTIONS.md` |
 | AGENTS.md-based tools | `AGENTS.md` |
 
+This table is illustrative and non-normative. For ACS conformance, the source of truth is the behavior spec.
+
 `AGENTS.md` standardizes plain-text instructions, but not structure, permissions, or agent roles. Every other tool above uses a completely different, incompatible format.
 
 If you use more than one tool — or your team uses different tools — you're duplicating effort. Knowledge stays trapped in vendor-specific formats. When you switch tools, you lose your configuration.
 
 ## What ACS does
 
-ACS defines a single `.agents/` folder that any compatible agent can read. One configuration, any tool.
+ACS defines a single `.agents/` folder that any ACS-compatible agent can read. One project configuration model across ACS-compatible tools.
 
 It also solves things AGENTS.md doesn't:
 - **Skills** — reusable capability packages, not just instructions

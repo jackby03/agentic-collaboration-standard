@@ -13,6 +13,8 @@ If `acs.yaml` is found, the agent MUST parse it and determine which layers are a
 ### B3 — Permissions enforcement
 If `permissions/policy.yaml` exists, the agent MUST apply deny rules before any file read or write operation.
 
+Note: in ACS v1.0, permissions policy keys are `read` and `write`.
+
 ### B4 — Context loading
 If the `context` layer is active, the agent MUST load `context/project.md` into the session context at startup.
 
