@@ -2,21 +2,12 @@ name: Publish to npm
 
 on:
   workflow_dispatch:
-    inputs:
-      package:
-        description: "Package to publish"
-        required: true
-        type: choice
-        options:
-          - agentic-standard (CLI)
-          - "@acs/validator"
 
 jobs:
-  publish-acs-cli:
+  publish:
     name: Publish agentic-standard CLI
     runs-on: ubuntu-latest
     environment: npm-publishing
-    if: ${{ github.event.inputs.package == 'agentic-standard (CLI)' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,34 +17,8 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: cli/
-      - name: Build
-        run: npm run build
-        working-directory: cli/
       - name: Publish
         run: npm publish --access public
         working-directory: cli/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-validator:
-    name: Publish @acs/validator
-    runs-on: ubuntu-latest
-    environment: npm-publishing
-    if: ${{ github.event.inputs.package == '@acs/validator' }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
-      - name: Install dependencies
-        run: npm install
-        working-directory: reference-impl/typescript/
-      - name: Build
-        run: npm run build
-        working-directory: reference-impl/typescript/
-      - name: Publish
-        run: npm publish --access public
-        working-directory: reference-impl/typescript/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

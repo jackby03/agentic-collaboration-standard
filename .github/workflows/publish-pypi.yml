@@ -2,20 +2,11 @@ name: Publish to PyPI
 
 on:
   workflow_dispatch:
-    inputs:
-      package:
-        description: "Package to publish"
-        required: true
-        type: choice
-        options:
-          - agentic-standard
-          - agentic-standard-validator
 
 jobs:
-  publish-agentic-standard:
+  publish:
     name: Publish agentic-standard
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.package == 'agentic-standard' }}
     permissions:
       id-token: write
     steps:
@@ -32,24 +23,3 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: packages/python/dist/
-
-  publish-agentic-standard-validator:
-    name: Publish agentic-standard-validator
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.package == 'agentic-standard-validator' }}
-    permissions:
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Install build tools
-        run: pip install build
-      - name: Build
-        run: python -m build
-        working-directory: reference-impl/python/
-      - name: Publish
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          packages-dir: reference-impl/python/dist/
