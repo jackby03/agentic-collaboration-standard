@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentic-standard"
-version = "1.0.2"
+version = "1.0.3"
 description = "CLI for the Agentic Collaboration Standard"
 readme = "README.md"
 license = { text = "MIT" }

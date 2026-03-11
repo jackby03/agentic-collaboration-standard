@@ -2,7 +2,7 @@
   "name": "acs-vscode",
   "displayName": "Agentic Collaboration Standard",
   "description": "YAML autocomplete and inline validation for .agents/ folders (ACS v1.0)",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "jackby03",
   "icon": "assets/icon.png",
   "license": "MIT",
