@@ -21,7 +21,8 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testMatch": ["<rootDir>/../../tests/typescript/**/*.test.ts"],
+    "roots": ["<rootDir>/../../tests/typescript"],
+    "testMatch": ["**/*.test.ts"],
     "moduleNameMapper": {
       "^../../reference-impl/typescript/(.*)$": "<rootDir>/$1"
     }

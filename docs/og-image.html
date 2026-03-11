@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <title>ACS OG Image</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0a0a0a;
+      color: #e8e8e8;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+    }
+
+    /* Grid background */
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(#1a1a1a 1px, transparent 1px),
+        linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.5;
+    }
+
+    /* Accent glow blobs */
+    .glow-tl {
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(184,255,87,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .glow-br {
+      position: absolute;
+      bottom: -140px;
+      right: -60px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(87,184,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Main layout */
+    .frame {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      height: 100%;
+      padding: 56px 64px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Left column */
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #B8FF57;
+      border: 1px solid rgba(184,255,87,0.3);
+      background: rgba(184,255,87,0.06);
+      padding: 5px 12px;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #B8FF57;
+    }
+
+    .headline {
+      font-size: 54px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #f0f0f0;
+    }
+
+    .headline em {
+      font-style: normal;
+      color: #B8FF57;
+    }
+
+    .sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: #888;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .sub strong {
+      color: #ccc;
+      font-weight: 400;
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tool-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #666;
+      border: 1px solid #222;
+      background: #111;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .tools-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      letter-spacing: 0.06em;
+      margin-right: 2px;
+    }
+
+    /* Right column — code block */
+    .right {
+      flex: 0 0 380px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .code-window {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .code-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #161616;
+      border-bottom: 1px solid #222;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+
+    .code-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      margin-left: 8px;
+    }
+
+    .code-body {
+      padding: 20px 20px 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.8;
+    }
+
+    .c-muted  { color: #444; }
+    .c-key    { color: #57b8ff; }
+    .c-val    { color: #B8FF57; }
+    .c-str    { color: #ffd557; }
+    .c-dir    { color: #ff8c57; }
+    .c-dim    { color: #555; }
+    .c-text   { color: #aaa; }
+
+    /* Domain */
+    .domain {
+      position: absolute;
+      bottom: 36px;
+      left: 64px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #333;
+      letter-spacing: 0.08em;
+      z-index: 2;
+    }
+
+    /* Version tag */
+    .version {
+      position: absolute;
+      bottom: 36px;
+      right: 64px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 0.1em;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow-tl"></div>
+  <div class="glow-br"></div>
+
+  <div class="frame">
+    <!-- Left -->
+    <div class="left">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Open Standard · v1.0
+      </div>
+
+      <div class="headline">
+        One folder.<br>
+        <em>Any agent.</em>
+      </div>
+
+      <div class="sub">
+        Stop scattering context across <strong>CLAUDE.md</strong>,
+        <strong>.cursorrules</strong>, <strong>GEMINI.md</strong>&nbsp;…<br>
+        One <strong>.agents/</strong> folder for every ACS-compatible tool.
+      </div>
+
+      <div class="tools">
+        <span class="tools-label">works with</span>
+        <span class="tool-pill">Claude Code</span>
+        <span class="tool-pill">Cursor</span>
+        <span class="tool-pill">Copilot</span>
+        <span class="tool-pill">Gemini CLI</span>
+        <span class="tool-pill">+ more</span>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="right">
+      <div class="code-window">
+        <div class="code-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="code-title">.agents/main.yaml</span>
+        </div>
+        <div class="code-body">
+          <div><span class="c-key">version</span><span class="c-dim">: </span><span class="c-str">"1.0"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="c-key">project</span><span class="c-dim">:</span></div>
+          <div>&nbsp;&nbsp;<span class="c-key">name</span><span class="c-dim">: </span><span class="c-str">"my-app"</span></div>
+          <div>&nbsp;&nbsp;<span class="c-key">description</span><span class="c-dim">: </span><span class="c-str">"…"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="c-key">layers</span><span class="c-dim">:</span></div>
+          <div>&nbsp;&nbsp;<span class="c-key">context</span><span class="c-dim">: </span><span class="c-val">true</span></div>
+          <div>&nbsp;&nbsp;<span class="c-key">skills</span><span class="c-dim">: </span><span class="c-val">true</span></div>
+          <div>&nbsp;&nbsp;<span class="c-key">commands</span><span class="c-dim">: </span><span class="c-val">true</span></div>
+          <div>&nbsp;</div>
+          <div><span class="c-muted"># That's it. Any agent reads this.</span></div>
+        </div>
+      </div>
+
+      <!-- File tree hint -->
+      <div style="margin-top:16px; padding: 14px 20px; background:#111; border:1px solid #222; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.9; color:#555;">
+        <div><span class="c-dir">.agents/</span></div>
+        <div>&nbsp;&nbsp;├── <span class="c-text">main.yaml</span></div>
+        <div>&nbsp;&nbsp;├── <span class="c-dim">context/</span></div>
+        <div>&nbsp;&nbsp;├── <span class="c-dim">skills/</span></div>
+        <div>&nbsp;&nbsp;└── <span class="c-dim">commands/</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="domain">agentcollab.dev</div>
+  <div class="version">ACS v1.0</div>
+</body>
+</html>

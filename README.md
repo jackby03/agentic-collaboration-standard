@@ -1,6 +1,6 @@
 # ACS — Agentic Collaboration Standard
 
-> A unified open format for agent-ready projects. Works across tools, teams, and platforms.
+![ACS — One folder. Any agent.](docs/hero.png)
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE)
 [![Status: Draft v1.0](https://img.shields.io/badge/Status-Draft%20v1.0-yellow.svg)](spec/v1/)
@@ -21,7 +21,6 @@ In practice, that fragmentation shows up in vendor-specific files and folders:
 | GitHub Copilot | `.github/copilot-instructions.md` |
 | Codex (OpenAI) | `AGENTS.md` + `~/.codex/config.toml` |
 | Windsurf | `.windsurfrules` |
-| Roo Code | `.clinerules` or `.roo/` |
 | Gemini CLI | `GEMINI.md` |
 | Zed | `.zed/` (editor settings with AI context) |
 | Kiro | `.kiro/steering/` |
