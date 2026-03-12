@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ACS Social Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:    #0a0a0a;
+      --bg2:   #111;
+      --bg3:   #161616;
+      --border:#222;
+      --border2:#333;
+      --accent:#B8FF57;
+      --text:  #e8e8e8;
+      --muted: #666;
+      --dim:   #999;
+      --blue:  #57b8ff;
+      --yellow:#ffd557;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── BOUNDARY MARKERS ── */
+    .boundary {
+      width: 1280px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #ff4444;
+      padding: 6px 0;
+      border: 1px dashed #ff4444;
+      background: rgba(255,68,68,0.05);
+      user-select: none;
+    }
+
+    /* ── CARD ── */
+    .card {
+      width: 1280px;
+      height: 640px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Grid background — same as index.html body::before */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .left {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 0 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Eyebrow badges — same as .badge / .badge-a */
+    .eyebrow { display: flex; gap: 10px; margin-bottom: 28px; }
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid var(--border2);
+      color: var(--muted);
+    }
+
+    .badge-a { border-color: var(--accent); color: var(--accent); }
+
+    /* Heading — same as h1 in index.html */
+    .heading {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 68px;
+      line-height: .95;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .heading .hi {
+      color: var(--accent);
+      position: relative;
+    }
+
+    .heading .hi::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: .25;
+    }
+
+    /* Italic subtitle — same as .hero-sub */
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+
+    /* Description — same as .hero-desc */
+    .desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .desc code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      background: rgba(184,255,87,.08);
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+
+    /* CTA button — same as .btn-p */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 12px 24px;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    /* ── RIGHT COLUMN: Code window ── */
+    .right {
+      position: relative;
+      z-index: 2;
+      width: 460px;
+      margin-right: 72px;
+      flex-shrink: 0;
+    }
+
+    /* Code window — same as .cw */
+    .cw {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(0,0,0,.6), 0 0 0 1px rgba(184,255,87,.04);
+    }
+
+    .ctb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dr  { background: #ff5f57; }
+    .dy  { background: #febc2e; }
+    .dg  { background: #28c840; }
+
+    .cfn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: 8px;
+    }
+
+    .cb {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.85;
+      color: var(--dim);
+    }
+
+    /* Syntax colors — same as index.html */
+    .cc { color: #555; }
+    .ck { color: var(--blue); }
+    .cv { color: var(--accent); }
+    .cs { color: var(--yellow); }
+    .ci { padding-left: 16px; }
+
+    /* ── URL TAG ── */
+    .url-tag {
+      position: absolute;
+      bottom: 28px;
+      left: 80px;
+      z-index: 2;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .url-tag svg { width: 16px; height: 16px; fill: var(--muted); opacity: .6; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BOUNDARY -->
+  <div class="boundary">▲ SCREENSHOT START — 1280 × 640 px ▲</div>
+
+  <div class="card">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="eyebrow">
+        <span class="badge badge-a">v1.0.0</span>
+        <span class="badge">Open Standard</span>
+      </div>
+
+      <div class="heading">
+        Agentic<br/><span class="hi">Collaboration</span><br/>Standard
+      </div>
+
+      <div class="subtitle">One folder. Any agent.</div>
+
+      <div class="desc">
+        ACS defines a unified <code>.agents/</code> folder for agent-ready projects —
+        instead of scattering context across <code>CLAUDE.md</code>,
+        <code>.cursorrules</code>, <code>GEMINI.md</code> and a dozen more vendor files.
+      </div>
+
+      <div class="btn">Get started →</div>
+    </div>
+
+    <!-- RIGHT: code window -->
+    <div class="right">
+      <div class="cw">
+        <div class="ctb">
+          <span class="dot dr"></span>
+          <span class="dot dy"></span>
+          <span class="dot dg"></span>
+          <span class="cfn">.agents/main.yaml</span>
+        </div>
+        <div class="cb">
+          <div><span class="cc"># ACS Manifest v1.0</span></div>
+          <div>&nbsp;</div>
+          <div><span class="ck">version</span>: <span class="cs">"1.0"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="ck">project</span>:</div>
+          <div class="ci"><span class="ck">name</span>: <span class="cs">"my-app"</span></div>
+          <div class="ci"><span class="ck">description</span>: <span class="cs">"E-commerce platform"</span></div>
+          <div class="ci"><span class="ck">framework</span>: <span class="cv">nextjs</span></div>
+          <div>&nbsp;</div>
+          <div><span class="ck">layers</span>:</div>
+          <div class="ci"><span class="ck">context</span>: <span class="cv">true</span></div>
+          <div class="ci"><span class="ck">skills</span>: <span class="cv">true</span></div>
+          <div class="ci"><span class="ck">commands</span>: <span class="cv">true</span></div>
+          <div class="ci"><span class="ck">agents</span>: <span class="cv">true</span></div>
+          <div class="ci"><span class="ck">permissions</span>: <span class="cv">true</span></div>
+          <div>&nbsp;</div>
+          <div><span class="ck">compatible_with</span>:</div>
+          <div class="ci">- <span class="cs">claude-code</span></div>
+          <div class="ci">- <span class="cs">cursor</span></div>
+          <div class="ci">- <span class="cs">gemini</span></div>
+          <div class="ci">- <span class="cs">codex</span></div>
+          <div class="ci">- <span class="cs">any</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub URL tag -->
+    <div class="url-tag">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+      </svg>
+      github.com/jackby03/agentic-collaboration-standard
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BOUNDARY -->
+  <div class="boundary">▼ SCREENSHOT END — 1280 × 640 px ▼</div>
+
+</body>
+</html>
