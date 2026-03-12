@@ -160,12 +160,25 @@
     .ctac:hover .ctac-ar{color:var(--accent);transform:translateX(4px)}
 
     /* FOOTER */
-    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
-    .fl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
-    .fl span{color:var(--accent)}
-    .flinks{display:flex;gap:24px}
-    .flinks a{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.05em;transition:color .2s}
-    .flinks a:hover{color:var(--text)}
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);background:var(--bg2)}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:48px 48px 32px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+    .footer-brand{}
+    .footer-brand-name{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:var(--accent);letter-spacing:.08em;margin-bottom:8px}
+    .footer-brand-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:280px}
+    .footer-socials{display:flex;gap:10px;margin-top:20px}
+    .footer-social{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--border2);border-radius:4px;color:var(--muted);text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+    .footer-social:hover{border-color:var(--accent);color:var(--accent);background:rgba(184,255,87,.06)}
+    .footer-social svg{width:16px;height:16px;fill:currentColor}
+    .footer-nav{display:flex;gap:56px}
+    .footer-col h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+    .footer-col a{display:block;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);text-decoration:none;margin-bottom:10px;transition:color .2s;letter-spacing:.03em}
+    .footer-col a:hover{color:var(--accent)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;flex-wrap:wrap;gap:12px}
+    .footer-copy{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+    .footer-copy a{color:var(--accent);text-decoration:none}
+    .footer-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2px;padding:3px 8px}
+    @media(max-width:768px){.footer-top{flex-direction:column}.footer-nav{gap:32px;flex-wrap:wrap}.footer-inner{padding:40px 20px 24px}}
 
     /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -413,13 +426,83 @@
   </div>
 </div>
 
+<!-- FINAL CTA BANNER -->
+<div style="position:relative;z-index:1;padding:80px 48px;background:var(--bg);border-top:1px solid var(--border);text-align:center">
+  <div style="max-width:640px;margin:0 auto">
+    <div class="stag" style="justify-content:center">Star on GitHub</div>
+    <h2 class="stit" style="margin-bottom:16px">Like what you see?<br/>Give it a star.</h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px">ACS is open source and community driven. Star the repo, open an issue, or contribute a skill — every bit helps the standard grow.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn-p" href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">
+        <svg style="width:16px;height:16px;fill:var(--bg);flex-shrink:0" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        Star on GitHub
+      </a>
+      <a class="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/issues" target="_blank">Open an issue →</a>
+    </div>
+  </div>
+</div>
+
 <footer>
-  <div class="fl"><span>ACS</span> — Agentic Collaboration Standard · v1.0.0 · <a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank" style="color:var(--muted);text-decoration:none">jackby03</a></div>
-  <div class="flinks">
-    <a href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Spec</a>
-    <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
-    <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/GOVERNANCE.md" target="_blank">Governance</a>
-    <a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">GitHub</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Brand + socials -->
+      <div class="footer-brand">
+        <div class="footer-brand-name">ACS</div>
+        <div class="footer-brand-desc">Agentic Collaboration Standard — one <code style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">.agents/</code> folder, any ACS-compatible agent.</div>
+        <div class="footer-socials">
+          <!-- GitHub -->
+          <a class="footer-social" href="https://github.com/jackby03" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a class="footer-social" href="https://linkedin.com/in/jackby03" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- X / Twitter -->
+          <a class="footer-social" href="https://x.com/ijackby03" target="_blank" aria-label="X">
+            <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+          </a>
+          <!-- Website -->
+          <a class="footer-social" href="https://jackby03.com" target="_blank" aria-label="Website">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Nav columns -->
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Standard</h4>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1" target="_blank">Specification</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/getting-started.md" target="_blank">Getting Started</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/examples" target="_blank">Examples</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/for-tool-builders.md" target="_blank">For Tool Builders</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard" target="_blank">GitHub</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/issues" target="_blank">Issues</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+          <a href="https://github.com/jackby03/agentic-collaboration-standard/blob/main/GOVERNANCE.md" target="_blank">Governance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tooling</h4>
+          <a href="https://marketplace.visualstudio.com/items?itemName=jackby03.acs-vscode" target="_blank">VS Code Extension</a>
+          <a href="https://www.npmjs.com/package/agentic-standard" target="_blank">npm package</a>
+          <a href="https://pypi.org/project/agentic-standard/" target="_blank">PyPI package</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        <span style="color:var(--accent)">ACS</span> — Agentic Collaboration Standard · v1.0.0 · Built by <a href="https://jackby03.com" target="_blank">jackby03</a>
+      </div>
+      <div class="footer-badge">CC0 · Open Standard</div>
+    </div>
   </div>
 </footer>
 
