@@ -62,5 +62,8 @@
     "@types/node": "^20.0.0",
     "@vscode/vsce": "^2.24.0",
     "typescript": "^5.4.0"
+  },
+  "overrides": {
+    "yauzl": "3.2.1"
   }
 }
