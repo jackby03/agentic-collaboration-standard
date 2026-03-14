@@ -1,5 +1,7 @@
 name: Validate ACS Examples
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   validate-examples:
     name: Validate example projects
