@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/task.schema.json",
+  "title": "ACS Task Frontmatter Prototype",
+  "description": "Prototype schema for task.md YAML frontmatter in interoperable .agents layouts.",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "schedule": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "human_review": {
+      "type": "boolean"
+    }
+  }
+}

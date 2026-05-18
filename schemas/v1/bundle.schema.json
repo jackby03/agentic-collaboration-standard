@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/bundle.schema.json",
+  "title": "ACS Bundle Prototype",
+  "description": "Prototype schema for distributable .dotagents bundle manifests.",
+  "type": "object",
+  "required": ["version", "bundle"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "maxLength": 32
+    },
+    "bundle": {
+      "type": "object",
+      "required": ["name", "format"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "format": {
+          "type": "string",
+          "enum": ["dotagents"]
+        },
+        "manifest": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "signature": {
+          "type": "string",
+          "maxLength": 256
+        }
+      }
+    },
+    "contents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "kind"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 512
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["agent", "skill", "task", "memory", "manifest", "asset"]
+          }
+        }
+      }
+    }
+  }
+}

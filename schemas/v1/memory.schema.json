@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/jackby03/agentic-collaboration-standard/main/schemas/v1/memory.schema.json",
+  "title": "ACS Memory Frontmatter Prototype",
+  "description": "Prototype schema for memory Markdown frontmatter in interoperable .agents layouts.",
+  "type": "object",
+  "required": ["id", "description", "opt_in"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024
+    },
+    "sensitivity": {
+      "type": "string",
+      "enum": ["public", "internal", "confidential", "restricted"]
+    },
+    "opt_in": {
+      "type": "boolean"
+    },
+    "export": {
+      "type": "string",
+      "enum": ["allowed", "masked", "blocked"]
+    },
+    "retention": {
+      "type": "string",
+      "maxLength": 128
+    }
+  }
+}

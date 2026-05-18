@@ -1,0 +1,31 @@
+{
+  "$schema": "../../schemas/v1/manifest.schema.json",
+  "version": "1.0",
+  "project": {
+    "id": "dotagents-example",
+    "name": "dotagents-example",
+    "description": "Prototype interoperability example showing how a frontmatter-based .agents layout can map into ACS concepts.",
+    "owners": [
+      "acs-maintainers"
+    ]
+  },
+  "interop": {
+    "format": "dotagents-prototype",
+    "maps_to": "acs-v1",
+    "goals": [
+      "compatibility",
+      "migration",
+      "progressive-adoption"
+    ]
+  },
+  "layers": {
+    "agents": true,
+    "skills": true,
+    "tasks": true,
+    "memories": true
+  },
+  "compatible_with": [
+    "acs",
+    "dot-agents"
+  ]
+}
