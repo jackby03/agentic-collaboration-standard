@@ -22,7 +22,7 @@ This roadmap covers everything from immediate stabilization work to long-term go
 - [x] **Add `AGENTS.md` to repo root** — added; ACS repo now dogfoods the standard with its own `.agents/` folder
 - [x] **Add `for-non-devs.md`** — comprehensive plain-language guide with examples, layers table, and real YAML samples
 - [x] **Expand FAQ** — expanded from 7 to 24 questions across 5 categories (General, Setup, Skills & Commands, Permissions, Tool Builders)
-- [x] **Spec conformance checklist** — `docs/conformance-checklist.md` created with full B1–B6 and R1–R4 checklist for tool builders
+- [x] **Spec conformance checklist** — `docs/guides/conformance-checklist.md` created with full B1–B6 and R1–R4 checklist for tool builders
 
 ### Tests
 

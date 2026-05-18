@@ -44,11 +44,11 @@ Any ACS-compatible agent will now automatically load your context at session sta
 
 ## Next steps
 
-- Add [skills](../spec/v1/05-skills.md) for reusable capabilities
-- Add [commands](../spec/v1/06-commands.md) for quick tasks
-- Add [agents](../spec/v1/07-agents.md) for specialized roles
-- Add [permissions](../spec/v1/08-permissions.md) to protect sensitive files
+- Add [skills](../../spec/v1/05-skills.md) for reusable capabilities
+- Add [commands](../../spec/v1/06-commands.md) for quick tasks
+- Add [agents](../../spec/v1/07-agents.md) for specialized roles
+- Add [permissions](../../spec/v1/08-permissions.md) to protect sensitive files
 
 ## Example projects
 
-Browse complete examples in [examples/](../examples/).
+Browse complete examples in [examples/](../../examples/).

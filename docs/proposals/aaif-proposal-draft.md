@@ -158,7 +158,7 @@ AAIF could help by providing a venue for:
 ## Repo artifacts linked to this draft
 
 - [Interop note](./interop-dotagents.md)
-- [Reference example](../examples/dotagents-example/README.md)
+- [Reference example](../../examples/dotagents-example/README.md)
 
 ## Positioning sentence
 

@@ -8,7 +8,7 @@ Once complete, declare compatibility in your documentation:
 ACS-compatible (v1.0) — implements B1–B6
 ```
 
-And optionally open a PR to add your tool to [community/ADOPTERS.md](../community/ADOPTERS.md).
+And optionally open a PR to add your tool to [community/ADOPTERS.md](../../community/ADOPTERS.md).
 
 ---
 
@@ -123,4 +123,4 @@ Or use the short form:
 ACS v1.0
 ```
 
-To be listed in the official registry, open a PR to [community/ADOPTERS.md](../community/ADOPTERS.md).
+To be listed in the official registry, open a PR to [community/ADOPTERS.md](../../community/ADOPTERS.md).

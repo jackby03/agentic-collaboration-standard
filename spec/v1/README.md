@@ -40,4 +40,4 @@ The complete specification for the Agentic Collaboration Standard.
 
 A tool is **ACS-compatible** if it implements the behavior defined in [10-behavior.md](10-behavior.md).
 
-See [docs/conformance-checklist.md](../../docs/conformance-checklist.md) for a self-certification checklist.
+See [docs/guides/conformance-checklist.md](../../docs/guides/conformance-checklist.md) for a self-certification checklist.

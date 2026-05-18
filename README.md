@@ -1,6 +1,6 @@
 # ACS — Agentic Collaboration Standard
 
-![ACS — One folder. Any agent.](docs/hero.png)
+![ACS — One folder. Any agent.](website/hero.png)
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE)
 [![Status: v1.0.0-beta](https://img.shields.io/badge/Status-v1.0.0--beta-blue.svg)](spec/v1/)
@@ -80,10 +80,13 @@ The CLI generates a ready-to-use `.agents/` structure with a `main.yaml` manifes
 
 ## Documentation
 
-- [Why ACS?](docs/why-acs.md)
-- [Getting Started](docs/getting-started.md)
-- [For non-developers](docs/for-non-devs.md)
-- [For tool builders](docs/for-tool-builders.md)
+- [Why ACS?](docs/guides/why-acs.md)
+- [Getting Started](docs/guides/getting-started.md)
+- [For non-developers](docs/guides/for-non-devs.md)
+- [For tool builders](docs/guides/for-tool-builders.md)
+- [Interop: ACS and frontmatter-based `.agents/`](docs/proposals/interop-dotagents.md)
+- [Privacy guidelines for memories](docs/guides/privacy-memories.md)
+- [Migration guide](docs/guides/migration-guide.md)
 - [Full specification →](spec/v1/)
 
 ## Compatibility

@@ -43,4 +43,4 @@ examples/dotagents-example/
 
 ## Current status
 
-This folder is a documentation and reference artifact for interoperability work. It is not yet the normative ACS v1 layout and should be read alongside [docs/interop-dotagents.md](../../docs/interop-dotagents.md).
+This folder is a documentation and reference artifact for interoperability work. It is not yet the normative ACS v1 layout and should be read alongside [docs/proposals/interop-dotagents.md](../../docs/proposals/interop-dotagents.md).
