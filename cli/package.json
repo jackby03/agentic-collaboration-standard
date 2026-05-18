@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/jackby03/agentic-collaboration-standard"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bin": {
     "acs": "./dist/index.js"
   },

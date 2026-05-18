@@ -57,4 +57,4 @@ acs validate
 
 ## License
 
-MIT © [jackby03](https://jackby03.com)
+Apache-2.0 © [jackby03](https://jackby03.com)

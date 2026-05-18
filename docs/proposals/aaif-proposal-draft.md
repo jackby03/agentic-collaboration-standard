@@ -163,3 +163,90 @@ AAIF could help by providing a venue for:
 ## Positioning sentence
 
 ACS seeks compatibility with existing initiatives while remaining willing to adopt the ecosystem's strongest ideas when they improve interoperability, developer experience, and the clarity of the standard.
+
+## Sponsors (target and status)
+
+- Current: community-driven, no formal external sponsors yet.
+- Target sponsors (outreach candidates): major AAIF members and platform maintainers who have a stake in agent interoperability — for example: Anthropic, OpenAI, Google, Microsoft, AWS, Cloudflare, Block, Bloomberg. These are *outreach targets*, not confirmed sponsors.
+- Sponsor needs: at least one organizational sponsor (member of AAIF) and one technical partner to commit reviewer/CI support before formal submission.
+
+## Maintainers and Contacts
+
+- Current repo maintainer: see `GOVERNANCE.md` (maintained by @jackby03). This project will propose an initial maintainer group that includes:
+	- the current maintainer(s) listed in `GOVERNANCE.md`;
+	- two-to-four community volunteers with domain experience (CLI, MCP, schemas);
+	- at least one representative willing to shepherd the AAIF submission and liaise with the AAIF Technical Committee.
+- Action: prepare a `MAINTAINERS.md` or update `GOVERNANCE.md` with explicit names and contact points before submission.
+
+## Finalized Scope (explicit)
+
+This submission will request an interoperability working track focused on the following deliverables (initial phase):
+
+1. Canonical mapping between frontmatter-based `.agents/` layouts and ACS concepts (agents, skills, tasks, memories, MCP manifests).
+2. JSON Schemas (prototype) for frontmatter fields: `agent`, `skill`, `task`, `memory`, `mcp.json` and `bundle`.
+3. Well-defined merge semantics (precedence, duplicate ID resolution, negative overrides, partial merge behavior).
+4. Privacy & safety rules for `memories` (sensitivity labels, default opt-in/opt-out, export rules).
+5. A reference example repository (`examples/dotagents-example`) demonstrating mapping and migration.
+6. Validation tooling (`scripts/validate-dotagents.*`) and CI checks demonstrating green runs on the reference example.
+7. Migration guide and developer-facing documentation.
+
+**Out of scope for initial AAIF submission**: production-ready CLI UX (full parity with `dot-agents`), signed bundle registries, or team-permission features — these remain future extensions.
+
+## License and compatibility
+
+- Current repository license: Apache-2.0 (see `LICENSE`).
+- Proposal stance: the ACS submission will be licensed under `Apache-2.0` for code artifacts and `CC-BY-4.0` for documentation where applicable. For AAIF consideration the submission will document license compatibility and propose governance terms compatible with AAIF's processes.
+
+## Proposed governance model (for AAIF submission)
+
+1. Technical Committee (TC) supervision: align with AAIF structure — the TC will review the interoperability track and accept specification promotions.
+2. Maintainers group: a small core team responsible for day-to-day maintenance, release management, and triage.
+3. Contribution model: GitHub-first workflow with RFCs for new fields or breaking changes; a defined comment period (30 days) for major changes.
+4. Acceptance criteria: tests passing, example artifacts present, at least one dependant project adoption or endorsement, and documented migration strategy.
+5. Security & privacy review: any memory-related proposal must pass a lightweight privacy review before acceptance.
+
+## Roadmap (milestones with timeline)
+
+The following 2-week sprint roadmap is proposed as the minimum to prepare an AAIF submission package.
+
+- Sprint 0 (now, 1 week): finalize AAIF proposal draft, identify sponsors, and confirm maintainers/contact points.
+- Sprint 1 (2 weeks): finalize `interop-dotagents.md` merge semantics; create `examples/dotagents-example` minimal layout; add `README`.
+- Sprint 2 (2 weeks): author prototype JSON Schemas and a `scripts/validate-dotagents.*` validator; add unit/integration tests.
+- Sprint 3 (2 weeks): wire CI (GitHub Actions) to run validation and tests; fix issues until green; create migration guide.
+- Sprint 4 (2 weeks): finalize governance docs, collect sponsor endorsements, prepare AAIF project-proposal YAML and submission materials.
+- Sprint 5 (2 weeks): outreach to AAIF, dot-agents/dotagentsprotocol maintainers for early review; respond to feedback and iterate.
+
+Estimated time to submission: 6–10 weeks depending on sponsor availability and community feedback.
+
+## Acceptance criteria for AAIF submission
+
+Before filing the project-proposal to AAIF we plan to have:
+
+- `docs/proposals/aaif-proposal-draft.md` (finalized) and `docs/proposals/interop-dotagents.md` with merge semantics.
+- `examples/dotagents-example/` present and validated by `scripts/validate-dotagents.*`.
+- CI checks green on main branch for the example and validation scripts.
+- A short migration guide and privacy notes for `memories`.
+- A named sponsor or AAIF contact willing to present/advocate the proposal.
+
+## Outreach and community plan
+
+1. Open an issue in this repo that summarizes the proposal, links docs, and requests feedback (`issue: interoperability/aaif-proposal`).
+2. Invite maintainers from `dot-agents`, `dotagentsprotocol`, and other adjacent projects for review and to join a working group.
+3. Publish a small call-for-feedback thread in relevant communities (X/Twitter, AAIF Discord, GitHub Discussions).
+
+## Risks and mitigation
+
+- Risk: license or governance friction with AAIF. Mitigation: early legal check and explicit compatibility notes.
+- Risk: lack of sponsor. Mitigation: target AAIF members and community companies, provide a low-effort demo to attract interest.
+- Risk: spec drift or scope creep. Mitigation: enforce sprint-based milestones and acceptance criteria.
+
+## Next actionable steps (short list)
+
+1. Confirm and add sponsor/maintainer names in `GOVERNANCE.md` and `MAINTAINERS.md`.
+2. Close merge semantics in `docs/proposals/interop-dotagents.md` (detailed rules + examples).
+3. Implement `examples/dotagents-example` and `scripts/validate-dotagents.*` and add CI.
+4. Finalize AAIF YAML proposal and submit to `aaif/project-proposals` once a sponsor is identified.
+
+---
+
+*Prepared by the ACS working group — draft for review.*

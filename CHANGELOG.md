@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased *(2026-05-18)*
+
+### Administrative
+
+- Relicensed repository from `MIT` to `Apache-2.0` to improve compatibility with foundation-level contribution and legal requirements.
+- Added `NOTICE` file and `docs/legal/licensing.md` with relicensing notes and next steps.
+- Updated package manifests and metadata to reflect new license where applicable.
+
+Files changed (non-exhaustive): `LICENSE`, `NOTICE`, `docs/legal/licensing.md`, `cli/package.json`, `reference-impl/typescript/package.json`, `editor/vscode/package.json`, `reference-impl/python/pyproject.toml`, `packages/python/pyproject.toml`, `editor/vscode/LICENSE`, `editor/vscode/README.md`, `docs/proposals/aaif-proposal-draft.md`.
+
+Notes:
+- Repository contributor audit indicates a single primary human contributor; no external contributor consent required for relicensing.
+- Next steps: add `MAINTAINERS.md`, adopt DCO for future contributions, and publish a relicensing notice in the repo and release notes.
+
+
 ## v1.0.0 *(2026-03-11)*
 
 ### Phase 1 — Tooling
