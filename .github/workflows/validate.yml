@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install pyyaml pytest
+      - name: Install Python reference implementation
+        run: pip install -e reference-impl/python
       - run: pytest tests/python/ -v
 
   test-typescript:
