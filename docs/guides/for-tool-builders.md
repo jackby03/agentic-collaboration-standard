@@ -4,7 +4,7 @@ If you're building an AI agent, IDE, or CLI tool, adding ACS support makes your 
 
 ## What to implement
 
-The full behavioral specification is in [spec/v1/10-behavior.md](../spec/v1/10-behavior.md).
+The full behavioral specification is in [spec/v1/10-behavior.md](../../spec/v1/10-behavior.md).
 
 **Minimum viable implementation (required):**
 - Scan for `.agents/main.yaml` at session start
@@ -26,12 +26,12 @@ Once implemented, declare compatibility in your docs:
 ACS-compatible (v1.0)
 ```
 
-And optionally open a PR to add yourself to [community/ADOPTERS.md](../community/ADOPTERS.md).
+And optionally open a PR to add yourself to [community/ADOPTERS.md](../../community/ADOPTERS.md).
 
 ## JSON Schemas
 
-Use the schemas in [schemas/v1/](../schemas/v1/) to validate files in your tool's linting or import logic.
+Use the schemas in [schemas/v1/](../../schemas/v1/) to validate files in your tool's linting or import logic.
 
 ## Reference implementations
 
-See [reference-impl/](../reference-impl/) for parser and validator examples in Python and TypeScript.
+See [reference-impl/](../../reference-impl/) for parser and validator examples in Python and TypeScript.

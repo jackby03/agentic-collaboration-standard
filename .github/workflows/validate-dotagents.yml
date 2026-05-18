@@ -1,0 +1,57 @@
+name: Validate dotagents Interop Prototype
+
+on:
+  push:
+    paths:
+      - ".github/workflows/validate-dotagents.yml"
+      - "docs/proposals/interop-dotagents.md"
+      - "docs/guides/privacy-memories.md"
+      - "docs/guides/migration-guide.md"
+      - "examples/dotagents-example/**"
+      - "schemas/v1/task.schema.json"
+      - "schemas/v1/memory.schema.json"
+      - "schemas/v1/bundle.schema.json"
+      - "scripts/validate_dotagents.py"
+      - "tests/python/test_dotagents_validation.py"
+  pull_request:
+    paths:
+      - ".github/workflows/validate-dotagents.yml"
+      - "docs/proposals/interop-dotagents.md"
+      - "docs/guides/privacy-memories.md"
+      - "docs/guides/migration-guide.md"
+      - "examples/dotagents-example/**"
+      - "schemas/v1/task.schema.json"
+      - "schemas/v1/memory.schema.json"
+      - "schemas/v1/bundle.schema.json"
+      - "scripts/validate_dotagents.py"
+      - "tests/python/test_dotagents_validation.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-dotagents-example:
+    name: Validate dotagents example
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate interoperability example
+        run: python scripts/validate_dotagents.py examples/dotagents-example
+
+  test-dotagents-validator:
+    name: Test dotagents validator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install pytest
+      - name: Install Python reference implementation
+        run: python -m pip install -e reference-impl/python
+      - name: Run validator tests
+        run: python -m pytest tests/python/test_dotagents_validation.py -v

@@ -35,3 +35,33 @@ desktop.ini
 
 # Resources
 resources/
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+coverage/
+htmlcov/
+
+# Caches
+.mypy_cache/
+.cache/
+
+# Editors / IDE
+.vscode/
+.idea/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Local python virtualenvs
+.venv/
+env/
+ENV/
+venv/
+
+# Misc
+*.swp
+*~

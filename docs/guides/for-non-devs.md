@@ -96,5 +96,5 @@ Then add `context/project.md` with your rules. Everything else is optional and a
 ## Next steps
 
 - Follow the [Getting Started guide](getting-started.md) for step-by-step setup
-- Browse [example projects](../examples/) to see complete `.agents/` configurations
+- Browse [example projects](../../examples/) to see complete `.agents/` configurations
 - Ask questions in [GitHub Discussions](https://github.com/jackby03/agentic-collaboration-standard/discussions)

@@ -15,10 +15,10 @@ That's fine. ACS is additive. Start with just `context/`, add more as needed. Th
 Yes. ACS skills use the exact same SKILL.md format. Just put them in `.agents/skills/` with no changes needed.
 
 **Is ACS the same as MCP?**
-No. MCP is a runtime protocol for tools and APIs. ACS is a project configuration format stored in files. They operate at different layers and complement each other — see [compatibility/with-MCP.md](../compatibility/with-MCP.md).
+No. MCP is a runtime protocol for tools and APIs. ACS is a project configuration format stored in files. They operate at different layers and complement each other — see [compatibility/with-MCP.md](../../compatibility/with-MCP.md).
 
 **Who maintains ACS?**
-Currently [@jackby03](https://github.com/jackby03). The goal is to move to neutral governance as adoption grows. See [GOVERNANCE.md](../GOVERNANCE.md).
+Currently [@jackby03](https://github.com/jackby03). The goal is to move to neutral governance as adoption grows. See [GOVERNANCE.md](../../GOVERNANCE.md).
 
 ---
 
@@ -28,10 +28,10 @@ Currently [@jackby03](https://github.com/jackby03). The goal is to move to neutr
 At the root of your project — the same level as your `README.md`, `package.json`, or `.git/` folder.
 
 **What if my tool doesn't find the `.agents/` folder?**
-Your tool may not be ACS-compatible yet. Check [community/ADOPTERS.md](../community/ADOPTERS.md) for the list of compatible tools, or open a compatibility issue to track it.
+Your tool may not be ACS-compatible yet. Check [community/ADOPTERS.md](../../community/ADOPTERS.md) for the list of compatible tools, or open a compatibility issue to track it.
 
 **How do I set up ACS in a monorepo?**
-Place a root `.agents/` for shared configuration. Each package can have its own `.agents/` that overrides the root for that package. The nearest `.agents/` to the working directory takes precedence. See [spec/v1/02-layout.md](../spec/v1/02-layout.md) for the full rules.
+Place a root `.agents/` for shared configuration. Each package can have its own `.agents/` that overrides the root for that package. The nearest `.agents/` to the working directory takes precedence. See [spec/v1/02-layout.md](../../spec/v1/02-layout.md) for the full rules.
 
 **Can I commit `.agents/` to git?**
 Yes, and you should. The `.agents/` folder is designed to be version-controlled alongside your code. This keeps agent configuration auditable and consistent for everyone on the team.
@@ -67,7 +67,7 @@ Not in v1.0. Permissions apply project-wide. Role-based permissions per agent ar
 ## Tool Builders
 
 **How do I declare my tool as ACS-compatible?**
-Implement behaviors B1–B6 from [spec/v1/10-behavior.md](../spec/v1/10-behavior.md), then add `ACS-compatible (v1.0)` to your documentation. Use the self-certification checklist in [docs/conformance-checklist.md](conformance-checklist.md). Optionally, open a PR to add your tool to [community/ADOPTERS.md](../community/ADOPTERS.md).
+Implement behaviors B1–B6 from [spec/v1/10-behavior.md](../../spec/v1/10-behavior.md), then add `ACS-compatible (v1.0)` to your documentation. Use the self-certification checklist in [conformance-checklist.md](./conformance-checklist.md). Optionally, open a PR to add your tool to [community/ADOPTERS.md](../../community/ADOPTERS.md).
 
 **Do I need to implement every behavior to be compatible?**
 B1–B6 are required for compatibility. R1–R4 are recommended. A tool that implements only some required behaviors should not claim full ACS compatibility.
@@ -77,7 +77,7 @@ B1–B6 are required for compatibility. R1–R4 are recommended. A tool that imp
 ## Contributing
 
 **How do I contribute?**
-See [CONTRIBUTING.md](../CONTRIBUTING.md). For spec changes, open an issue first. For examples, compatibility guides, or documentation, PRs are welcome directly.
+See [CONTRIBUTING.md](../../CONTRIBUTING.md). For spec changes, open an issue first. For examples, compatibility guides, or documentation, PRs are welcome directly.
 
 **How do I propose a new feature?**
-Open a GitHub issue describing the use case. New fields or file types require a 2-week comment period before a decision. Breaking changes require an RFC and 30-day comment period. See [GOVERNANCE.md](../GOVERNANCE.md).
+Open a GitHub issue describing the use case. New fields or file types require a 2-week comment period before a decision. Breaking changes require an RFC and 30-day comment period. See [GOVERNANCE.md](../../GOVERNANCE.md).

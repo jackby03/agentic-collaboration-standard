@@ -16,3 +16,15 @@ Changes to `spec/v1/` require a proposal issue first. Minor clarifications (typo
 ## Governance
 
 See [GOVERNANCE.md](GOVERNANCE.md) for how decisions are made.
+
+## Developer Certificate of Origin (DCO)
+
+This project uses the Developer Certificate of Origin to track contributor assertions about the origin of their contributions. By contributing you agree to the DCO terms and must sign-off each commit with `Signed-off-by: Your Name <email@example.com>`.
+
+Git can automatically add a sign-off using:
+
+```bash
+git commit -s -m "A descriptive commit message"
+```
+
+If you are unable to sign your commits, please open an issue so maintainers can advise on alternative contribution workflows.

@@ -7,7 +7,7 @@ name = "agentic-standard"
 version = "1.0.3"
 description = "CLI for the Agentic Collaboration Standard"
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 requires-python = ">=3.9"
 keywords = ["acs", "agentic", "collaboration", "standard", "cli"]
 dependencies = ["pyyaml>=6.0"]

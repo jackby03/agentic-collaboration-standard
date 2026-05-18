@@ -5,7 +5,7 @@
   "version": "0.1.3",
   "publisher": "jackby03",
   "icon": "assets/icon.png",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jackby03/agentic-collaboration-standard"
