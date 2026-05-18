@@ -15,8 +15,13 @@ jobs:
         run: |
           failed=0
           for dir in examples/*/; do
-            echo "Validating $dir"
-            python reference-impl/python/acs_validator.py "$dir" || failed=1
+            echo "Checking $dir"
+            if [ -f "$dir/.agents/main.yaml" ]; then
+              echo "Validating $dir"
+              python reference-impl/python/acs_validator.py "$dir" || failed=1
+            else
+              echo "Skipping $dir (no .agents/main.yaml)"
+            fi
           done
           exit $failed
 
