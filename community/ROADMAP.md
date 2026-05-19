@@ -66,18 +66,22 @@ The CLI is the single highest-leverage investment in Phase 1. It removes the mai
 
 ---
 
-## Phase 2 — Adoption `[6 – 12 weeks]`
+## Phase 2 — Adoption & Self-Serve Value `[6 – 12 weeks]`
 
-**Goal:** Get at least one major AI coding tool to declare ACS compatibility. One real adopter unlocks community momentum.
+**Goal:** Maximize the utility of the standard for developers independently, delivering self-serve value without waiting for third-party tool integrations.
 
-### Tool Integrations
+### Tool Integrations (Self-Serve Compilers)
 
-- [ ] **Claude Code integration** — open a formal issue/discussion on the Claude Code repository proposing native `.agents/` support; provide the reference implementation and conformance checklist as supporting material
-- [ ] **Cursor integration** — engage with Cursor's community forum to propose `.agents/` as a complement to `.cursor/rules/`; the `compatible_with: cursor` field in `main.yaml` already signals intent
-- [ ] **Windsurf / Codeium** — similar outreach; `.windsurfrules` is already listed as a fragmentation pain point on the ACS landing page
-- [ ] **Zed integration** — Zed is rapidly adding agentic features; engage early while the architecture is still malleable
-- [ ] **Roo Code integration** — Roo Code already has a custom rules format (`.clinerules`); propose ACS as a portable alternative
-- [ ] **agentskills.io partnership** — ACS already declares SKILL.md compatibility; formalize a cross-link, shared documentation, and mutual referencing with agentskills.io
+- [ ] **`acs compile` for Claude Code** — automatically compile `.agents/` down to `CLAUDE.md` to give developers immediate, seamless Claude compatibility.
+- [ ] **`acs compile` for Cursor** — automatically generate `.cursor/rules/` or `.cursorrules` from the ACS source of truth.
+- [ ] **`acs compile` for Windsurf** — automatically compile `.agents/` down to `.windsurfrules`.
+- [ ] **`acs compile` for Roo Code** — export natively to `.clinerules`.
+- [ ] **agentskills.io interoperability** — ACS already declares SKILL.md compatibility; formalize cross-link and mutual referencing with agentskills.io.
+
+### Standalone Tooling
+
+- [ ] **ACS GitHub Action MVP** — create a GitHub Action that uses the `.agents/` configuration to provide standard PR reviews or validations, extracting independent value from the files.
+- [ ] **Local Task Runner** — a CLI tool that uses `commands` inside `.agents/` to execute standardized agentic tasks outside of specific IDEs (e.g. `acs run test-agent`).
 
 ### Community
 
@@ -167,7 +171,6 @@ Declarations of which MCP servers and tools the project expects.
 
 ### CLI v2
 
-- [ ] **`acs compile`** — generate `CLAUDE.md`, `.cursorrules`, `.windsurfrules`, `GEMINI.md`, and other vendor-specific files from the `.agents/` source of truth; enables gradual migration without breaking existing tools
 - [ ] **`acs diff`** — show what would change between two ACS versions or configs
 - [ ] **`acs export`** — export a single layer (e.g., just skills) to a standalone directory
 - [ ] **Plugin system for `acs compile`** — allow community plugins to add new compile targets
@@ -209,11 +212,10 @@ Declarations of which MCP servers and tools the project expects.
 | `acs init` + `acs validate` CLI | M | Very High | 1 |
 | Publish npm + PyPI packages | S | High | 1 |
 | VS Code extension MVP | S | High | 1 |
-| Claude Code integration outreach | S | Very High | 2 |
+| `acs compile` (vendor file generation) | M | Very High | 2 |
 | ACS badge | XS | Medium | 2 |
 | Launch post (dev.to + HN) | S | High | 2 |
 | Execution policy in permissions | M | High | 3 |
-| `acs compile` (vendor file generation) | L | Very High | 4 |
 | Workflows layer | L | High | 4 |
 | Public skills registry | XL | Very High | 5 |
 | Neutral foundation | XL | Very High | 5 |
