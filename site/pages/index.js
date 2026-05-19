@@ -29,6 +29,67 @@ const readmeHighlights = [
   'Portable across ACS-compatible tools',
   'README-first presentation for the standard',
 ]
+const overviewCards = [
+  {
+    title: 'Spec v1.0',
+    meta: '10 chapters',
+    description: 'The full standard: from overview and layout through behavior and future roadmap.',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1',
+  },
+  {
+    title: 'Schemas v1',
+    meta: 'Draft-07',
+    description: 'JSON Schemas for validating manifests, skills, commands, and permissions.',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/tree/main/schemas/v1',
+  },
+  {
+    title: 'Reference implementations',
+    meta: 'Python + TS',
+    description: 'Battle-tested validators and CLI tooling in Python and TypeScript.',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/tree/main/reference-impl',
+  },
+  {
+    title: 'Examples',
+    meta: 'Real projects',
+    description: 'Ready-to-copy .agents/ setups for teams, products, and open source.',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/tree/main/examples',
+  },
+]
+const quickStartSteps = [
+  {
+    title: 'Init',
+    code: 'acs init',
+    description: 'Scaffold .agents/ with a manifest and starter project context.',
+  },
+  {
+    title: 'Validate',
+    code: 'acs validate',
+    description: 'Verify your project against the ACS v1.0 schema.',
+  },
+  {
+    title: 'List layers',
+    code: 'acs ls',
+    description: 'Inspect active layers and compatible tooling at a glance.',
+  },
+]
+const resourceLinks = [
+  {
+    label: 'Why ACS?',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/guides/why-acs.md',
+  },
+  {
+    label: 'Getting started',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/guides/getting-started.md',
+  },
+  {
+    label: 'Conformance checklist',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/blob/main/docs/guides/conformance-checklist.md',
+  },
+  {
+    label: 'Roadmap',
+    href: 'https://github.com/jackby03/agentic-collaboration-standard/blob/main/community/ROADMAP.md',
+  },
+]
 
 const layers = [
   {
@@ -199,9 +260,11 @@ export default function Home() {
             ACS
           </a>
           <ul className="nav-links">
+            <li><a href="#overview">Overview</a></li>
             <li><a href="#layers">Spec</a></li>
             <li><a href="#how">How it works</a></li>
             <li><a href="#compat">Compatibility</a></li>
+            <li><a href="#quickstart">Quickstart</a></li>
             <li><ExternalLink href="https://github.com/jackby03/agentic-collaboration-standard">Docs</ExternalLink></li>
             <li><ExternalLink href="https://github.com/jackby03/agentic-collaboration-standard" className="nav-cta">GitHub →</ExternalLink></li>
           </ul>
@@ -230,6 +293,11 @@ export default function Home() {
             <ExternalLink className="btn-s" href="https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1">
               Read the spec
             </ExternalLink>
+          </div>
+          <div className="hero-highlights">
+            {readmeHighlights.map((item) => (
+              <span key={item} className="hero-chip">{item}</span>
+            ))}
           </div>
           <div className="hero-code">
             <div className="cw">
@@ -276,6 +344,61 @@ export default function Home() {
             <span className="li">Cursor</span><span className="li">Zed</span><span className="li">Claude Code</span><span className="li">Gemini</span><span className="li">Codex</span><span className="li">Kiro</span><span className="li">Trae</span><span className="li">Windsurf</span><span className="li">JetBrains Junie</span><span className="li">Coodo</span><span className="li">GitHub Copilot</span><span className="li">Roo Code</span><span className="li">Antigravity</span><span className="li">Firebase Studio</span><span className="li">any agent →</span>
           </div>
         </div>
+
+        <section className="overview" id="overview">
+          <div className="container">
+            <div className="reveal">
+              <div className="stag">Overview</div>
+              <h2 className="stit">Everything you need<br />to ship ACS.</h2>
+              <p className="sdesc">Spec, schemas, validators, and examples — all versioned, open, and ready to reuse.</p>
+            </div>
+            <div className="ov-grid reveal">
+              {overviewCards.map((card) => (
+                <ExternalLink key={card.title} href={card.href} className="ov-card">
+                  <div className="ov-top">
+                    <span className="ov-meta">{card.meta}</span>
+                    <span className="ov-arrow">→</span>
+                  </div>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </ExternalLink>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="qs" id="quickstart">
+          <div className="container">
+            <div className="reveal">
+              <div className="stag">Quick start</div>
+              <h2 className="stit">Scaffold ACS<br />in minutes.</h2>
+              <p className="sdesc">Use the CLI to create, validate, and inspect your .agents/ setup — then share it across every tool.</p>
+            </div>
+            <div className="qs-layout">
+              <div className="qs-copy reveal">
+                <p>The ACS CLI bootstraps a full .agents/ folder with a manifest and starter context. Pair it with the VS Code extension for inline validation and YAML autocomplete.</p>
+                <div className="qs-links">
+                  {resourceLinks.map((link) => (
+                    <ExternalLink key={link.label} href={link.href} className="qs-link">
+                      {link.label}
+                    </ExternalLink>
+                  ))}
+                </div>
+              </div>
+              <div className="qs-grid reveal">
+                {quickStartSteps.map((step) => (
+                  <div key={step.title} className="qs-card">
+                    <div className="qs-card-top">
+                      <span className="qs-title">{step.title}</span>
+                      <code className="qs-code">{step.code}</code>
+                    </div>
+                    <p>{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="ps">
           <div className="container">
@@ -574,6 +697,46 @@ export default function Home() {
           color: inherit;
         }
 
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 48px;
+          width: 100%;
+        }
+
+        .stag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--accent);
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 16px;
+        }
+
+        .stag::after {
+          content: '';
+          width: 32px;
+          height: 1px;
+          background: var(--border2);
+          opacity: 0.7;
+        }
+
+        .stit {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(30px, 4.5vw, 44px);
+          line-height: 1.1;
+          letter-spacing: -0.01em;
+          margin-bottom: 16px;
+        }
+
+        .center {
+          text-align: center;
+          justify-content: center;
+        }
+
         .page-shell {
           position: relative;
         }
@@ -606,7 +769,7 @@ export default function Home() {
         .nav-links {
           display: flex;
           align-items: center;
-          gap: 32px;
+          gap: 24px;
           list-style: none;
         }
 
@@ -738,6 +901,27 @@ export default function Home() {
           animation: fadeUp 0.7s ease forwards 0.8s;
         }
 
+        .hero-highlights {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 28px;
+          opacity: 0;
+          animation: fadeUp 0.7s ease forwards 0.95s;
+        }
+
+        .hero-chip {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--dim);
+          border: 1px solid var(--border2);
+          border-radius: 999px;
+          padding: 6px 12px;
+          background: rgba(255, 255, 255, 0.02);
+        }
+
         .btn-p,
         .btn-s,
         .install-link {
@@ -793,6 +977,10 @@ export default function Home() {
         }
 
         @media (max-width: 1100px) {
+          .nav-links {
+            gap: 16px;
+          }
+
           .hero-code {
             display: none;
           }
@@ -884,70 +1072,6 @@ export default function Home() {
           to { transform: translateX(-50%); }
         }
 
-        .hero-code {
-          position: absolute;
-          right: 48px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 400px;
-          opacity: 0;
-          animation: fadeLeft 0.8s ease forwards 0.9s;
-        }
-
-        @media (max-width: 1100px) {
-          .hero-code {
-            display: none;
-          }
-        }
-
-        .cw {
-          background: var(--bg3);
-          border: 1px solid var(--border2);
-          border-radius: 6px;
-          overflow: hidden;
-          box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 255, 87, 0.04);
-        }
-
-        .ctb {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 12px 16px;
-          border-bottom: 1px solid var(--border);
-          background: var(--bg2);
-        }
-
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-        }
-
-        .dr { background: #ff5f57; }
-        .dy { background: #febc2e; }
-        .dg { background: #28c840; }
-
-        .cfn {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11px;
-          color: var(--muted);
-          margin-left: 8px;
-        }
-
-        .cb {
-          padding: 20px;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 12px;
-          line-height: 1.85;
-          color: var(--dim);
-        }
-
-        .cc { color: #555555; }
-        .ck { color: var(--blue); }
-        .cv { color: var(--accent); }
-        .cs { color: var(--yellow); }
-        .ci { padding-left: 16px; }
-
         .logos {
           position: relative;
           z-index: 1;
@@ -957,7 +1081,7 @@ export default function Home() {
           margin: 0 auto;
           display: flex;
           align-items: center;
-          gap: 0;
+          gap: 24px;
           flex-wrap: wrap;
         }
 
@@ -971,6 +1095,13 @@ export default function Home() {
           white-space: nowrap;
         }
 
+        .logo-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px 24px;
+          align-items: center;
+        }
+
         .li {
           font-family: 'JetBrains Mono', monospace;
           font-size: 12px;
@@ -978,8 +1109,12 @@ export default function Home() {
           opacity: 0.45;
           letter-spacing: 0.05em;
           transition: opacity 0.2s;
+          white-space: nowrap;
+          margin-bottom: 0;
         }
-          margin-bottom: 20px;
+
+        .li:hover {
+          opacity: 0.9;
         }
 
         .sdesc {
@@ -989,9 +1124,174 @@ export default function Home() {
           line-height: 1.7;
         }
 
-        .ps, .ls, .hs, .cs2 {
+        .overview,
+        .qs,
+        .ps,
+        .ls,
+        .hs,
+        .cs2 {
           padding: 100px 0;
           border-bottom: 1px solid var(--border);
+        }
+
+        .overview {
+          position: relative;
+          z-index: 1;
+        }
+
+        .ov-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin-top: 48px;
+        }
+
+        .ov-card {
+          background: var(--bg2);
+          border: 1px solid var(--border2);
+          border-radius: 6px;
+          padding: 24px;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          min-height: 200px;
+          transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .ov-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(184, 255, 87, 0.4);
+          background: rgba(184, 255, 87, 0.05);
+        }
+
+        .ov-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .ov-meta {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--muted);
+        }
+
+        .ov-card h3 {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--text);
+        }
+
+        .ov-card p {
+          font-size: 13px;
+          color: var(--muted);
+          line-height: 1.5;
+        }
+
+        .ov-arrow {
+          color: var(--accent);
+          font-size: 16px;
+        }
+
+        .qs {
+          background: var(--bg2);
+        }
+
+        .qs-layout {
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          gap: 64px;
+          margin-top: 48px;
+          align-items: start;
+        }
+
+        .qs-copy p {
+          font-size: 15px;
+          color: var(--muted);
+          line-height: 1.7;
+          margin-bottom: 24px;
+        }
+
+        .qs-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        .qs-link {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          border: 1px solid var(--border2);
+          padding: 8px 12px;
+          border-radius: 999px;
+          color: var(--dim);
+          text-decoration: none;
+          transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .qs-link:hover {
+          color: var(--accent);
+          border-color: rgba(184, 255, 87, 0.4);
+          background: rgba(184, 255, 87, 0.08);
+        }
+
+        .qs-grid {
+          display: grid;
+          gap: 16px;
+        }
+
+        .qs-card {
+          background: var(--bg);
+          border: 1px solid var(--border2);
+          border-radius: 6px;
+          padding: 20px 22px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .qs-card:hover {
+          border-color: rgba(184, 255, 87, 0.35);
+          transform: translateY(-2px);
+        }
+
+        .qs-card-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
+
+        .qs-title {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--muted);
+        }
+
+        .qs-code {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 12px;
+          color: var(--accent);
+          background: rgba(184, 255, 87, 0.08);
+          border: 1px solid rgba(184, 255, 87, 0.16);
+          padding: 6px 10px;
+          border-radius: 4px;
+        }
+
+        .qs-card p {
+          font-size: 13px;
+          color: var(--muted);
+          line-height: 1.6;
+          margin: 0;
         }
 
         .pgrid {
@@ -1474,6 +1774,11 @@ export default function Home() {
           border-bottom: 1px solid var(--border);
         }
 
+        .footer-brand {
+          display: flex;
+          flex-direction: column;
+        }
+
         .footer-brand-name {
           font-family: 'JetBrains Mono', monospace;
           font-weight: 700;
@@ -1629,10 +1934,12 @@ export default function Home() {
           }
 
           .pgrid,
+          .ov-grid,
           .ll2,
           .sg,
           .cg,
-          .ctai {
+          .ctai,
+          .qs-layout {
             grid-template-columns: 1fr;
           }
 
