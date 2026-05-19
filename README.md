@@ -1,6 +1,6 @@
 # ACS — Agentic Collaboration Standard
 
-![ACS — One folder. Any agent.](website/hero.png)
+![ACS — One folder. Any agent.](website/readme.png)
 
 [![License: CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE)
 [![Status: v1.0.0-beta](https://img.shields.io/badge/Status-v1.0.0--beta-blue.svg)](spec/v1/)
