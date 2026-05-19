@@ -13,6 +13,12 @@ This project follows Semantic Versioning 2.0.0.
 - Relicensed the repository from `MIT` to `Apache-2.0` to improve compatibility with foundation-level contribution and legal requirements.
 - Updated package manifests and metadata to reflect the new license where applicable.
 
+- Implemented V2 discovery and CLI surface: `compile`, `diff`, and `export` commands added to the `cli` tool to generate vendor artifacts, report pending generated changes, and export layers.
+- Extended `acs init` and scaffolding to support V2 layer filenames (`workflow.md`, `hook.md`, `profile.md`, `task.md`, `memory.md`) and added templates for v2 layers.
+- Localized parser/validation helpers inside `cli/src/utils/` (e.g. `project.ts`, `validation.ts`) so the CLI compiles cleanly without importing the full `reference-impl` TypeScript sources.
+- Fixed TypeScript build issues and made the CLI self-contained; `pnpm build` and `pnpm tsc` now succeed for the CLI after these fixes.
+- Removed dogfood test artifacts and generated companion vendor files created during development (temporary `.agents/` dogfood and `CLAUDE.md`, `.cursorrules`, `.windsurfrules`, `GEMINI.md`, `.github/copilot-instructions.md`).
+
 ### Added
 
 - Added `NOTICE` and `docs/legal/licensing.md` with relicensing notes and next steps.
