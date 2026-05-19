@@ -1,8 +1,3 @@
-/**
- * ACS Reference Parser (TypeScript)
- * Discovers and parses .agents/ folder structure.
- */
-
 import * as fs from "fs";
 import * as path from "path";
 import * as yaml from "js-yaml";
@@ -76,7 +71,9 @@ function readText(filePath: string): string {
 }
 
 function walkFiles(dir: string, predicate: (filePath: string) => boolean): string[] {
-  if (!fs.existsSync(dir)) return [];
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
 
   const results: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -165,9 +162,15 @@ export function findACSRoot(start: string = process.cwd()): string | null {
   let current = path.resolve(start);
   while (true) {
     const candidate = path.join(current, ".agents", "main.yaml");
-    if (fs.existsSync(candidate)) return current;
+    if (fs.existsSync(candidate)) {
+      return current;
+    }
+
     const parent = path.dirname(current);
-    if (parent === current) return null;
+    if (parent === current) {
+      return null;
+    }
+
     current = parent;
   }
 }
@@ -191,37 +194,24 @@ export function discoverSkills(root: string): ACSSkill[] {
 
 export function loadProject(start?: string): ACSProject | null {
   const root = findACSRoot(start);
-  if (!root) return null;
+  if (!root) {
+    return null;
+  }
+
   const manifest = parseManifest(root);
-  const skills = discoverSkills(root);
+
   return {
     root,
     manifest,
-    skills,
+    skills: discoverSkills(root),
     contextFiles: discoverDocuments(root, "context"),
     commands: discoverDocuments(root, "commands"),
     agents: discoverDocuments(root, "agents"),
-    workflows: discoverMarkdownArtifacts(root, "workflows", "workflow.md"),
-    hooks: discoverMarkdownArtifacts(root, "hooks", "hook.md"),
-    profiles: discoverMarkdownArtifacts(root, "profiles", "profile.md"),
+    workflows: discoverMarkdownArtifacts(root, "workflows", "workflow.md") as ACSWorkflow[],
+    hooks: discoverMarkdownArtifacts(root, "hooks", "hook.md") as ACSHook[],
+    profiles: discoverMarkdownArtifacts(root, "profiles", "profile.md") as ACSProfile[],
     toolsets: discoverYamlArtifacts(root, "tools"),
-    tasks: discoverMarkdownArtifacts(root, "tasks", "task.md"),
-    memories: discoverMarkdownArtifacts(root, "memories", "memory.md"),
+    tasks: discoverMarkdownArtifacts(root, "tasks", "task.md") as ACSTask[],
+    memories: discoverMarkdownArtifacts(root, "memories", "memory.md") as ACSMemory[],
   };
-}
-
-export function parseMarkdownArtifact(filePath: string): ACSArtifact {
-  return artifactFromMarkdown(filePath);
-}
-
-export function listMarkdownArtifacts(root: string, subdir: string, filename: string): ACSArtifact[] {
-  return discoverMarkdownArtifacts(root, subdir, filename);
-}
-
-export function listDocuments(root: string, subdir: string): string[] {
-  return discoverDocuments(root, subdir);
-}
-
-export function listYamlArtifacts(root: string, subdir: string): ACSToolset[] {
-  return discoverYamlArtifacts(root, subdir);
 }

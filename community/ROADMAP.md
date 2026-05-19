@@ -86,6 +86,7 @@ The CLI is the single highest-leverage investment in Phase 1. It removes the mai
 - [ ] **Launch post** — publish on dev.to, HN (Show HN), and LinkedIn; the landing page already has a strong problem/solution narrative to draw from
 - [ ] **ACS badge** — create a Shields.io-compatible badge (`ACS-compatible v1.0`) that adopters can add to their README
 - [ ] **Office hours / async Q&A** — monthly async thread (GitHub Discussion or Discord) where the maintainer answers questions from tool builders and early users
+- [ ] **Design-system interoperability** — evaluate how DESIGN.md / getdesign.md can coexist with ACS so product, visual, and agent instructions stay separated while remaining portable; useful for teams adopting tooling in the Stitch / Pencil Dev space
 
 ### Ecosystem Examples
 

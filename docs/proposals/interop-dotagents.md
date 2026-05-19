@@ -60,6 +60,7 @@ These are the areas where ACS may benefit from adjacent projects:
 - Frontmatter as a portable metadata layer: it enables validation without sacrificing Markdown expressiveness.
 - Tasks and memories as first-class objects: they make explicit what many teams currently model informally.
 - More ergonomic initialization and linking flows: useful for CLI adoption and larger teams.
+- Design-system guidance artifacts: standards such as DESIGN.md surfaced through getdesign.md can complement ACS by giving projects a portable place for visual, brand, and UX constraints without mixing them into agent instructions.
 
 ACS should not copy these patterns automatically. It should evaluate them and adopt them where they solve a real problem better than the current approach.
 

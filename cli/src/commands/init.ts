@@ -9,6 +9,14 @@ import {
   generateMainYaml,
   generateContextMd,
   generateSkillMd,
+  generateCommandMd,
+  generateAgentMd,
+  generateWorkflowMd,
+  generateHookMd,
+  generateProfileMd,
+  generateToolsetYaml,
+  generateTaskMd,
+  generateMemoryMd,
 } from "../utils/scaffold";
 
 export function initCommand(): Command {
@@ -83,6 +91,12 @@ export function initCommand(): Command {
               { title: "skills", value: "skills", selected: false },
               { title: "commands", value: "commands", selected: false },
               { title: "agents", value: "agents", selected: false },
+              { title: "workflows", value: "workflows", selected: false },
+              { title: "hooks", value: "hooks", selected: false },
+              { title: "profiles", value: "profiles", selected: false },
+              { title: "tools", value: "tools", selected: false },
+              { title: "tasks", value: "tasks", selected: false },
+              { title: "memories", value: "memories", selected: false },
               { title: "permissions", value: "permissions", selected: false },
             ],
             hint: "Space to select, Enter to confirm",
@@ -102,6 +116,12 @@ export function initCommand(): Command {
         skills: layerSet.has("skills"),
         commands: layerSet.has("commands"),
         agents: layerSet.has("agents"),
+        workflows: layerSet.has("workflows"),
+        hooks: layerSet.has("hooks"),
+        profiles: layerSet.has("profiles"),
+        tools: layerSet.has("tools"),
+        tasks: layerSet.has("tasks"),
+        memories: layerSet.has("memories"),
         permissions: layerSet.has("permissions"),
       };
 
@@ -138,21 +158,44 @@ export function initCommand(): Command {
 
       // commands/ placeholder
       if (layerSet.has("commands")) {
-        const cmdFile = path.join(agentsDir, "commands", "example-command.md");
-        writeFile(
-          cmdFile,
-          `---\nname: example-command\ndescription: Describe what this command does.\n---\n\n## Instructions\n\n1. Step one\n2. Step two\n`
-        );
+        writeFile(path.join(agentsDir, "commands", "example-command.md"), generateCommandMd("example-command"));
         created.push(".agents/commands/example-command.md");
       }
 
       // agents/ placeholder
       if (layerSet.has("agents")) {
-        writeFile(
-          path.join(agentsDir, "agents", "reviewer.md"),
-          `# Reviewer\n\nYou are a code reviewer. Focus on correctness, clarity, and adherence to project conventions.\n`
-        );
+        writeFile(path.join(agentsDir, "agents", "reviewer.md"), generateAgentMd("reviewer"));
         created.push(".agents/agents/reviewer.md");
+      }
+
+      if (layerSet.has("workflows")) {
+        writeFile(path.join(agentsDir, "workflows", "workflow.md"), generateWorkflowMd("workflow"));
+        created.push(".agents/workflows/workflow.md");
+      }
+
+      if (layerSet.has("hooks")) {
+        writeFile(path.join(agentsDir, "hooks", "hook.md"), generateHookMd("hook", "pre-edit"));
+        created.push(".agents/hooks/hook.md");
+      }
+
+      if (layerSet.has("profiles")) {
+        writeFile(path.join(agentsDir, "profiles", "profile.md"), generateProfileMd("profile"));
+        created.push(".agents/profiles/profile.md");
+      }
+
+      if (layerSet.has("tools")) {
+        writeFile(path.join(agentsDir, "tools", "toolset.yaml"), generateToolsetYaml());
+        created.push(".agents/tools/toolset.yaml");
+      }
+
+      if (layerSet.has("tasks")) {
+        writeFile(path.join(agentsDir, "tasks", "task.md"), generateTaskMd("task"));
+        created.push(".agents/tasks/task.md");
+      }
+
+      if (layerSet.has("memories")) {
+        writeFile(path.join(agentsDir, "memories", "memory.md"), generateMemoryMd("memory"));
+        created.push(".agents/memories/memory.md");
       }
 
       // permissions/policy.yaml

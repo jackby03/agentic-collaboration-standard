@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import * as path from "path";
 import chalk from "chalk";
-import { findACSRoot, loadProject } from "../../../reference-impl/typescript/parser";
+import { findACSRoot, loadProject } from "../utils/project";
 
 export function lsCommand(): Command {
   const cmd = new Command("ls");
@@ -25,7 +25,19 @@ export function lsCommand(): Command {
         process.exit(1);
       }
 
-      const { manifest, skills, contextFiles, commands, agents } = project;
+      const {
+        manifest,
+        skills,
+        contextFiles,
+        commands,
+        agents,
+        workflows,
+        hooks,
+        profiles,
+        toolsets,
+        tasks,
+        memories,
+      } = project;
 
       console.log(
         `${chalk.bold(manifest.project.name)}  ${chalk.dim(`v${manifest.version}`)}`
@@ -66,6 +78,54 @@ export function lsCommand(): Command {
         console.log("");
       }
 
+      if (workflows.length > 0) {
+        console.log(chalk.bold("Workflows"));
+        for (const workflow of workflows) {
+          console.log(`  ${chalk.cyan(workflow.name)}`);
+        }
+        console.log("");
+      }
+
+      if (hooks.length > 0) {
+        console.log(chalk.bold("Hooks"));
+        for (const hook of hooks) {
+          console.log(`  ${chalk.cyan(hook.name)}`);
+        }
+        console.log("");
+      }
+
+      if (profiles.length > 0) {
+        console.log(chalk.bold("Profiles"));
+        for (const profile of profiles) {
+          console.log(`  ${chalk.cyan(profile.name)}`);
+        }
+        console.log("");
+      }
+
+      if (toolsets.length > 0) {
+        console.log(chalk.bold("Tools"));
+        for (const toolset of toolsets) {
+          console.log(`  ${chalk.cyan(toolset.name)}`);
+        }
+        console.log("");
+      }
+
+      if (tasks.length > 0) {
+        console.log(chalk.bold("Tasks"));
+        for (const task of tasks) {
+          console.log(`  ${chalk.cyan(task.name)}`);
+        }
+        console.log("");
+      }
+
+      if (memories.length > 0) {
+        console.log(chalk.bold("Memories"));
+        for (const memory of memories) {
+          console.log(`  ${chalk.cyan(memory.name)}`);
+        }
+        console.log("");
+      }
+
       if (contextFiles.length > 0) {
         console.log(chalk.bold("Context"));
         for (const c of contextFiles) {
@@ -78,6 +138,12 @@ export function lsCommand(): Command {
         skills.length === 0 &&
         commands.length === 0 &&
         agents.length === 0 &&
+        workflows.length === 0 &&
+        hooks.length === 0 &&
+        profiles.length === 0 &&
+        toolsets.length === 0 &&
+        tasks.length === 0 &&
+        memories.length === 0 &&
         contextFiles.length === 0
       ) {
         console.log(

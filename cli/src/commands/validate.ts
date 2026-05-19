@@ -1,8 +1,8 @@
 import { Command } from "commander";
 import * as path from "path";
 import chalk from "chalk";
-import { findACSRoot } from "../../../reference-impl/typescript/parser";
-import { validateProject } from "../../../reference-impl/typescript/validator";
+import { findACSRoot } from "../utils/project";
+import { validateProject } from "../utils/validation";
 
 export function validateCommand(): Command {
   const cmd = new Command("validate");

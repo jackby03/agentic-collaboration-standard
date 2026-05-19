@@ -68,6 +68,8 @@ This proposal does not replace that baseline. Instead, it introduces a structure
 - Privacy and safety before convenience for persistent data.
 - Incremental rollout with examples and tests before spec promotion.
 
+The same selective-adoption approach should apply to adjacent design guidance standards such as DESIGN.md surfaced through getdesign.md. Those artifacts are complementary to ACS: they help projects describe visual and product direction without conflating that concern with agent execution policy.
+
 ## Candidate interoperable artifacts
 
 | Artifact | Purpose | ACS status |
@@ -89,6 +91,8 @@ A proposal should be considered for inclusion in ACS when it:
 - can be validated mechanically;
 - does not undermine the existing ACS mental model;
 - has a workable migration story.
+
+That same bar applies to design guidance formats. A project-facing standard such as DESIGN.md can be worth adopting or interoperating with when it improves the handoff between product, design, and agent-generated implementation, but it should remain a separate concern from ACS's agent configuration model.
 
 This keeps the door open to ecosystem innovation without turning the standard into a pile of undocumented exceptions.
 

@@ -76,3 +76,117 @@ description: Describe what this skill does and when to use it. Be specific.
 3. Step three
 `;
 }
+
+export function generateCommandMd(commandName: string): string {
+  return `---
+name: ${commandName}
+description: Describe what this command does.
+---
+
+## Instructions
+
+1. Step one
+2. Step two
+3. Step three
+`;
+}
+
+export function generateAgentMd(agentName: string): string {
+  return `---
+name: ${agentName}
+description: Describe this agent's role and when to invoke it.
+---
+
+# ${agentName}
+
+You are a specialized ACS agent.
+`;
+}
+
+export function generateWorkflowMd(workflowName: string): string {
+  return `---
+name: ${workflowName}
+description: Describe the workflow and when to trigger it.
+trigger: manual
+steps:
+  - step-one
+  - step-two
+---
+
+# ${workflowName}
+
+## Steps
+
+1. Step one
+2. Step two
+3. Step three
+`;
+}
+
+export function generateHookMd(hookName: string, hookPoint: string): string {
+  return `---
+name: ${hookName}
+description: Describe what this hook enforces.
+hook: ${hookPoint}
+---
+
+# ${hookName}
+
+Use this hook to enforce a consistent behavior before or after agent actions.
+`;
+}
+
+export function generateProfileMd(profileName: string): string {
+  return `---
+name: ${profileName}
+description: Describe when to use this profile.
+---
+
+# ${profileName}
+
+## Behavior
+
+Define how this profile changes agent behavior and priorities.
+`;
+}
+
+export function generateToolsetYaml(): string {
+  return `name: default-toolset
+description: Default toolset declaration for ACS-compatible tools
+servers:
+  - name: filesystem
+    required: true
+  - name: github
+    required: false
+`;
+}
+
+export function generateTaskMd(taskName: string): string {
+  return `---
+name: ${taskName}
+description: Describe the repeatable task.
+---
+
+# ${taskName}
+
+## Steps
+
+1. Step one
+2. Step two
+3. Step three
+`;
+}
+
+export function generateMemoryMd(memoryName: string): string {
+  return `---
+name: ${memoryName}
+description: Describe what should be remembered.
+opt_in: false
+sensitivity: internal
+---
+
+# ${memoryName}
+
+Capture durable, non-sensitive project context here.
+`;
+}
