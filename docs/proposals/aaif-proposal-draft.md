@@ -1,5 +1,7 @@
 # AAIF Proposal Draft: ACS Interoperability with Frontmatter-Based `.agents/`
 
+This draft is the repository's concrete response to community interest in a more formal standards path, including the request raised in [issue #9](https://github.com/jackby03/agentic-collaboration-standard/issues/9) to explore AAIF / Linux Foundation-style standardization and broader `.agents` adoption.
+
 ## Summary
 
 This draft proposes an interoperability track for the Agentic Collaboration Standard (ACS) that can work with frontmatter-based `.agents/` layouts emerging in adjacent projects.

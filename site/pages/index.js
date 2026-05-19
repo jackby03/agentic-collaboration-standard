@@ -231,12 +231,34 @@ export default function Home() {
               Read the spec
             </ExternalLink>
           </div>
-          <div className="hero-preview" aria-label="Updated ACS README preview">
-            <img src="/readme.png" alt="ACS README preview showing the new landing style and core message" className="hero-image" />
-            <div className="hero-preview-footer">
-              {readmeHighlights.map((item) => (
-                <span key={item} className="hero-preview-chip">{item}</span>
-              ))}
+          <div className="hero-code">
+            <div className="cw">
+              <div className="ctb"><span className="dot dr"></span><span className="dot dy"></span><span className="dot dg"></span><span className="cfn">.agents/main.yaml</span></div>
+              <div className="cb">
+                <div><span className="cc"># ACS Manifest v1.0</span></div>
+                <div>&nbsp;</div>
+                <div><span className="ck">version</span>: <span className="cs">"1.0"</span></div>
+                <div>&nbsp;</div>
+                <div><span className="ck">project</span>:</div>
+                <div className="ci"><span className="ck">name</span>: <span className="cs">"my-app"</span></div>
+                <div className="ci"><span className="ck">description</span>: <span className="cs">"E-commerce platform"</span></div>
+                <div className="ci"><span className="ck">framework</span>: <span className="cv">nextjs</span></div>
+                <div>&nbsp;</div>
+                <div><span className="ck">layers</span>:</div>
+                <div className="ci"><span className="ck">context</span>: <span className="cv">true</span></div>
+                <div className="ci"><span className="ck">skills</span>: <span className="cv">true</span></div>
+                <div className="ci"><span className="ck">commands</span>: <span className="cv">true</span></div>
+                <div className="ci"><span className="ck">agents</span>: <span className="cv">true</span></div>
+                <div className="ci"><span className="ck">permissions</span>: <span className="cv">true</span></div>
+                <div>&nbsp;</div>
+                <div><span className="ck">compatible_with</span>:</div>
+                <div className="ci">- <span className="cs">claude-code</span></div>
+                <div className="ci">- <span className="cs">cursor</span></div>
+                <div className="ci">- <span className="cs">zed</span></div>
+                <div className="ci">- <span className="cs">gemini</span></div>
+                <div className="ci">- <span className="cs">codex</span></div>
+                <div className="ci">- <span className="cs">any</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -862,6 +884,70 @@ export default function Home() {
           to { transform: translateX(-50%); }
         }
 
+        .hero-code {
+          position: absolute;
+          right: 48px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 400px;
+          opacity: 0;
+          animation: fadeLeft 0.8s ease forwards 0.9s;
+        }
+
+        @media (max-width: 1100px) {
+          .hero-code {
+            display: none;
+          }
+        }
+
+        .cw {
+          background: var(--bg3);
+          border: 1px solid var(--border2);
+          border-radius: 6px;
+          overflow: hidden;
+          box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 255, 87, 0.04);
+        }
+
+        .ctb {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 16px;
+          border-bottom: 1px solid var(--border);
+          background: var(--bg2);
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+
+        .dr { background: #ff5f57; }
+        .dy { background: #febc2e; }
+        .dg { background: #28c840; }
+
+        .cfn {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px;
+          color: var(--muted);
+          margin-left: 8px;
+        }
+
+        .cb {
+          padding: 20px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 12px;
+          line-height: 1.85;
+          color: var(--dim);
+        }
+
+        .cc { color: #555555; }
+        .ck { color: var(--blue); }
+        .cv { color: var(--accent); }
+        .cs { color: var(--yellow); }
+        .ci { padding-left: 16px; }
+
         .logos {
           position: relative;
           z-index: 1;
@@ -885,49 +971,13 @@ export default function Home() {
           white-space: nowrap;
         }
 
-        .hero-preview {
-          display: flex;
-          align-items: center;
-          gap: 28px;
-          flex-wrap: wrap;
-          width: 560px;
-
         .li {
           font-family: 'JetBrains Mono', monospace;
           font-size: 12px;
           font-weight: 500;
-          .hero-preview {
           opacity: 0.45;
           letter-spacing: 0.05em;
           transition: opacity 0.2s;
-        }
-        .hero-image {
-          display: block;
-          width: 100%;
-          height: auto;
-          border: 1px solid var(--border2);
-          border-radius: 8px;
-          box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 255, 87, 0.04);
-        }
-
-        .hero-preview-footer {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-          margin-top: 14px;
-          justify-content: flex-start;
-        }
-
-        .hero-preview-chip {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 10px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--muted);
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid var(--border2);
-          border-radius: 999px;
-          padding: 6px 10px;
         }
           margin-bottom: 20px;
         }
