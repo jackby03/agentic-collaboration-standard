@@ -1,6 +1,6 @@
-# ACS site (Vercel prototype)
+# ACS site
 
-Quick prototype of a Next.js site intended for deployment to Vercel.
+Next.js implementation of the ACS landing page migrated from `website/index.html`.
 
 Local development
 
@@ -10,11 +10,16 @@ npm install
 npm run dev
 ```
 
+Development notes
+
+- Run `npm install` once in `site/`.
+- Run `npm run dev` for local development.
+- Run `npm run build` to verify the production build.
+
 Deployment notes
 
-- Create a new project in Vercel and link this repository.
-- Set the Project Root to `site/` (in Vercel Project Settings) so Vercel builds the Next app.
-- Build command: `npm run build`, Output Directory: (leave default). Vercel will detect Next.js automatically.
-- Enable Vercel Analytics in the project dashboard to collect analytics; the site already includes `@vercel/analytics` and renders `<Analytics />` in `_app.js`.
+- Set the project root to `site/` in Vercel so the Next.js app is built from the migrated site.
+- Vercel can detect the framework automatically; keep the default output settings.
+- The app already includes `@vercel/analytics` in `_app.js`.
 
 Optional: Environment-specific settings can be configured in the Vercel dashboard.
