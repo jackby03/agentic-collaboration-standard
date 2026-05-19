@@ -187,6 +187,7 @@ export default function Home() {
         <meta name="twitter:title" content="ACS — Agentic Collaboration Standard" />
         <meta name="twitter:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering context across vendor-specific files." />
         <meta name="twitter:image" content="https://agentstandard.jackby03.com/readme.png" />
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
