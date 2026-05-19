@@ -169,19 +169,19 @@ export default function Home() {
       <Head>
         <title>ACS — Agentic Collaboration Standard</title>
         <meta name="description" content="A unified open format for agent-ready projects. One .agents/ folder for ACS-compatible agents and tools." />
-        <link rel="canonical" href="https://acs.jackby03.com/" />
+        <link rel="canonical" href="https://agentstandard.jackby03.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://acs.jackby03.com/" />
+        <meta property="og:url" content="https://agentstandard.jackby03.com/" />
         <meta property="og:title" content="ACS — Agentic Collaboration Standard" />
         <meta property="og:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering project context across CLAUDE.md, .cursorrules, GEMINI.md, and a dozen vendor-specific files." />
-        <meta property="og:image" content="https://acs.jackby03.com/hero.png" />
+        <meta property="og:image" content="https://agentstandard.jackby03.com/hero.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Agentic Collaboration Standard" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ACS — Agentic Collaboration Standard" />
         <meta name="twitter:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering context across vendor-specific files." />
-        <meta name="twitter:image" content="https://acs.jackby03.com/hero.png" />
+        <meta name="twitter:image" content="https://agentstandard.jackby03.com/hero.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />

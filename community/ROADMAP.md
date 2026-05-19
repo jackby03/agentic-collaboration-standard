@@ -32,8 +32,8 @@ This roadmap covers everything from immediate stabilization work to long-term go
 
 ### Website
 
-- [x] **Verify GitHub Pages deployment** — confirmed live at `https://acs.jackby03.com`
-- [x] **Add canonical URL and Open Graph meta tags** — canonical, `og:image`, `og:image:width/height`, `twitter:image` all set; hero image served at `https://acs.jackby03.com/hero.png`
+- [x] **Verify GitHub Pages deployment** — confirmed live at `https://agentstandard.jackby03.com`
+- [x] **Add canonical URL and Open Graph meta tags** — canonical, `og:image`, `og:image:width/height`, `twitter:image` all set; hero image served at `https://agentstandard.jackby03.com/hero.png`
 - [x] **Fix ticker duplication** — ticker expanded from 10 to 20 diverse items
 
 ---

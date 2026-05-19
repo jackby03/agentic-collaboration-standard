@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/jackby03/agentic-collaboration-standard"
   },
-  "homepage": "https://acs.jackby03.com",
+  "homepage": "https://agentstandard.jackby03.com",
   "engines": {
     "vscode": "^1.85.0"
   },

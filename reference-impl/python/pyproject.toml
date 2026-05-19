@@ -13,7 +13,7 @@ keywords = ["acs", "agentic", "collaboration", "standard", "validator"]
 dependencies = ["pyyaml>=6.0"]
 
 [project.urls]
-Homepage = "https://acs.jackby03.com"
+Homepage = "https://agentstandard.jackby03.com"
 Repository = "https://github.com/jackby03/agentic-collaboration-standard"
 
 [tool.setuptools.packages.find]

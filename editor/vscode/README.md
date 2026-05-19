@@ -1,6 +1,6 @@
 # Agentic Collaboration Standard — VS Code Extension
 
-YAML autocomplete and inline validation for `.agents/` folders ([ACS v1.0](https://acs.jackby03.com)).
+YAML autocomplete and inline validation for `.agents/` folders ([ACS v1.0](https://agentstandard.jackby03.com)).
 
 ## Features
 
@@ -50,7 +50,7 @@ acs validate
 
 ## Links
 
-- [ACS Website](https://acs.jackby03.com)
+- [ACS Website](https://agentstandard.jackby03.com)
 - [Specification](https://github.com/jackby03/agentic-collaboration-standard/tree/main/spec/v1)
 - [GitHub Repository](https://github.com/jackby03/agentic-collaboration-standard)
 - [Examples](https://github.com/jackby03/agentic-collaboration-standard/tree/main/examples)

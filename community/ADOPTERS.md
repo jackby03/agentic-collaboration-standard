@@ -5,10 +5,10 @@ Tools and projects that have adopted the Agentic Collaboration Standard.
 Want to be listed? Add an `ACS-compatible` badge to your README and open a PR editing this file.
 
 ```markdown
-[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://acs.jackby03.com)
+[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://agentstandard.jackby03.com)
 ```
 
-[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://acs.jackby03.com)
+[![ACS compatible](https://img.shields.io/badge/ACS-compatible%20v1.0-4CAF50?style=flat-square)](https://agentstandard.jackby03.com)
 
 ---
 
