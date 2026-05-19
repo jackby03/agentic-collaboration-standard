@@ -24,6 +24,11 @@ const withAcsItems = [
   '✓ Portable when you switch tools',
   '✓ Human-readable for non-devs too',
 ]
+const readmeHighlights = [
+  'One folder for agent context',
+  'Portable across ACS-compatible tools',
+  'README-first presentation for the standard',
+]
 
 const layers = [
   {
@@ -174,14 +179,14 @@ export default function Home() {
         <meta property="og:url" content="https://agentstandard.jackby03.com/" />
         <meta property="og:title" content="ACS — Agentic Collaboration Standard" />
         <meta property="og:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering project context across CLAUDE.md, .cursorrules, GEMINI.md, and a dozen vendor-specific files." />
-        <meta property="og:image" content="https://agentstandard.jackby03.com/hero.png" />
+        <meta property="og:image" content="https://agentstandard.jackby03.com/readme.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Agentic Collaboration Standard" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ACS — Agentic Collaboration Standard" />
         <meta name="twitter:description" content="One .agents/ folder. Any ACS-compatible agent. Stop scattering context across vendor-specific files." />
-        <meta name="twitter:image" content="https://agentstandard.jackby03.com/hero.png" />
+        <meta name="twitter:image" content="https://agentstandard.jackby03.com/readme.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -225,39 +230,12 @@ export default function Home() {
               Read the spec
             </ExternalLink>
           </div>
-          <div className="hero-code" aria-label="Example ACS manifest">
-            <div className="cw">
-              <div className="ctb">
-                <span className="dot dr" />
-                <span className="dot dy" />
-                <span className="dot dg" />
-                <span className="cfn">.agents/main.yaml</span>
-              </div>
-              <div className="cb">
-                <div><span className="cc"># ACS Manifest v1.0</span></div>
-                <div>&nbsp;</div>
-                <div><span className="ck">version</span>: <span className="cs">"1.0"</span></div>
-                <div>&nbsp;</div>
-                <div><span className="ck">project</span>:</div>
-                <div className="ci"><span className="ck">name</span>: <span className="cs">"my-app"</span></div>
-                <div className="ci"><span className="ck">description</span>: <span className="cs">"E-commerce platform"</span></div>
-                <div className="ci"><span className="ck">framework</span>: <span className="cv">nextjs</span></div>
-                <div>&nbsp;</div>
-                <div><span className="ck">layers</span>:</div>
-                <div className="ci"><span className="ck">context</span>: <span className="cv">true</span></div>
-                <div className="ci"><span className="ck">skills</span>: <span className="cv">true</span></div>
-                <div className="ci"><span className="ck">commands</span>: <span className="cv">true</span></div>
-                <div className="ci"><span className="ck">agents</span>: <span className="cv">true</span></div>
-                <div className="ci"><span className="ck">permissions</span>: <span className="cv">true</span></div>
-                <div>&nbsp;</div>
-                <div><span className="ck">compatible_with</span>:</div>
-                <div className="ci">- <span className="cs">claude-code</span></div>
-                <div className="ci">- <span className="cs">cursor</span></div>
-                <div className="ci">- <span className="cs">zed</span></div>
-                <div className="ci">- <span className="cs">gemini</span></div>
-                <div className="ci">- <span className="cs">codex</span></div>
-                <div className="ci">- <span className="cs">any</span></div>
-              </div>
+          <div className="hero-preview" aria-label="Updated ACS README preview">
+            <img src="/readme.png" alt="ACS README preview showing the new landing style and core message" className="hero-image" />
+            <div className="hero-preview-footer">
+              {readmeHighlights.map((item) => (
+                <span key={item} className="hero-preview-chip">{item}</span>
+              ))}
             </div>
           </div>
         </div>
@@ -906,69 +884,50 @@ export default function Home() {
           white-space: nowrap;
         }
 
-        .logo-list {
+        .hero-preview {
           display: flex;
           align-items: center;
           gap: 28px;
           flex-wrap: wrap;
-        }
+          width: 560px;
 
         .li {
           font-family: 'JetBrains Mono', monospace;
           font-size: 12px;
           font-weight: 500;
-          color: var(--muted);
+          .hero-preview {
           opacity: 0.45;
           letter-spacing: 0.05em;
           transition: opacity 0.2s;
         }
-
-        .li:hover {
-          opacity: 0.9;
+        .hero-image {
+          display: block;
+          width: 100%;
+          height: auto;
+          border: 1px solid var(--border2);
+          border-radius: 8px;
+          box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(184, 255, 87, 0.04);
         }
 
-        section {
-          position: relative;
-          z-index: 1;
+        .hero-preview-footer {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 14px;
+          justify-content: flex-start;
         }
 
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 48px;
-        }
-
-        .stag {
+        .hero-preview-chip {
           font-family: 'JetBrains Mono', monospace;
           font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: var(--accent);
-          margin-bottom: 16px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
+          color: var(--muted);
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid var(--border2);
+          border-radius: 999px;
+          padding: 6px 10px;
         }
-
-        .stag::before {
-          content: '';
-          display: inline-block;
-          width: 24px;
-          height: 1px;
-          background: var(--accent);
-        }
-
-        .center {
-          justify-content: center;
-        }
-
-        .stit {
-          font-family: 'Playfair Display', serif;
-          font-weight: 700;
-          font-size: clamp(28px, 4vw, 44px);
-          line-height: 1.15;
-          color: var(--text);
           margin-bottom: 20px;
         }
 

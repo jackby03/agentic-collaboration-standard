@@ -1,21 +1,23 @@
 # Changelog
 
-## Unreleased *(2026-05-18)*
+All notable changes to this project are documented in this file.
+This project follows Semantic Versioning 2.0.0.
 
-### Administrative
+## [Unreleased]
 
-- Relicensed repository from `MIT` to `Apache-2.0` to improve compatibility with foundation-level contribution and legal requirements.
-- Added `NOTICE` file and `docs/legal/licensing.md` with relicensing notes and next steps.
-- Updated package manifests and metadata to reflect new license where applicable.
+### Changed
 
-Files changed (non-exhaustive): `LICENSE`, `NOTICE`, `docs/legal/licensing.md`, `cli/package.json`, `reference-impl/typescript/package.json`, `editor/vscode/package.json`, `reference-impl/python/pyproject.toml`, `packages/python/pyproject.toml`, `editor/vscode/LICENSE`, `editor/vscode/README.md`, `docs/proposals/aaif-proposal-draft.md`.
+- Rebuilt the ACS landing page in Next.js under `site/` with the full homepage content migrated from the legacy static site.
+- Updated the public domain and canonical URLs to `agentstandard.jackby03.com`.
+- Replaced the old hero preview asset with the new README-focused image used across the site and social previews.
+- Relicensed the repository from `MIT` to `Apache-2.0` to improve compatibility with foundation-level contribution and legal requirements.
+- Updated package manifests and metadata to reflect the new license where applicable.
 
-Notes:
-- Repository contributor audit indicates a single primary human contributor; no external contributor consent required for relicensing.
-- Next steps: add `MAINTAINERS.md`, adopt DCO for future contributions, and publish a relicensing notice in the repo and release notes.
+### Added
 
+- Added `NOTICE` and `docs/legal/licensing.md` with relicensing notes and next steps.
 
-## v1.0.0 *(2026-03-11)*
+## [1.0.0] - 2026-03-11
 
 ### Phase 1 — Tooling
 
@@ -39,7 +41,7 @@ Notes:
 
 ---
 
-## v1.0.0-draft (2026-03-10)
+## [1.0.0-draft] - 2026-03-10
 
 - Initial draft specification
 - Defined: `.agents/` layout, `main.yaml` manifest, context, skills, commands, agents, permissions
